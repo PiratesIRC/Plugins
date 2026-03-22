@@ -9,9 +9,8 @@ A repository for publishing and distributing Dispatcharr Python plugins with aut
 | Resource | Description |
 |----------|-------------|
 | [Browse Plugins](https://github.com/Dispatcharr/Plugins/tree/releases) | All available plugins on the releases branch |
-| [Plugin Manifest](https://raw.githubusercontent.com/Dispatcharr/Plugins/releases/manifest.json) | Plugin metadata, checksums, and download URLs |
-| [Download Releases](https://github.com/Dispatcharr/Plugins/tree/releases/releases) | Plugin ZIP files |
-| [View Metadata](https://github.com/Dispatcharr/Plugins/tree/releases/metadata) | Version metadata with commit info and checksums |
+| [Plugin Manifest](https://raw.githubusercontent.com/Dispatcharr/Plugins/releases/manifest.json) | Root plugin index with metadata and download URLs |
+| [Download Releases](https://github.com/Dispatcharr/Plugins/tree/releases/zips) | Plugin ZIP files and per-plugin manifests |
 
 ## How It Works
 
@@ -52,3 +51,48 @@ Visit the [releases branch](https://github.com/Dispatcharr/Plugins/tree/releases
 ```bash
 curl https://raw.githubusercontent.com/Dispatcharr/Plugins/releases/manifest.json
 ```
+
+## Verifying Manifest Signatures
+
+Each manifest file embeds its GPG signature directly. The `signature` field covers the compact (`jq -c '.manifest'`) form of the `manifest` payload:
+
+```json
+{
+  "generated_at": "...",
+  "repo_url": "...",
+  "repo_name": "owner/repo",
+  "signature": "-----BEGIN PGP SIGNATURE-----\n...",
+  "manifest": { ... }
+}
+```
+
+The public key is bundled with Dispatcharr. To verify manually, export it from the application or obtain `.github/scripts/keys/dispatcharr-plugins.pub` from the default branch.
+
+### Steps
+
+**1. Import the public key**
+
+```bash
+gpg --import dispatcharr-plugins.pub
+```
+
+**2. Download the manifest**
+
+```bash
+curl -sO https://raw.githubusercontent.com/Dispatcharr/Plugins/releases/manifest.json
+```
+
+**3. Verify**
+
+```bash
+jq -c '.manifest' manifest.json | gpg --verify <(jq -r '.signature' manifest.json) -
+```
+
+A successful result looks like:
+
+```
+gpg: Signature made ...
+gpg: Good signature from "..." [full]
+```
+
+The same steps apply to any per-plugin manifest - substitute the path to `zips/<plugin>/manifest.json`.

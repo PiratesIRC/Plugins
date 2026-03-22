@@ -26,9 +26,11 @@ export SOURCE_BRANCH RELEASES_BRANCH MAX_VERSIONED_ZIPS
 
 echo "Publishing plugins from $SOURCE_BRANCH to $RELEASES_BRANCH"
 
-# Create temporary working directory
+# Create temporary working directories
 WORK_DIR=$(mktemp -d)
-trap "rm -rf $WORK_DIR" EXIT
+BUILD_META_DIR=$(mktemp -d)
+export BUILD_META_DIR
+trap 'rm -rf "$WORK_DIR" "$BUILD_META_DIR"' EXIT
 
 echo "Cloning repository..."
 git clone --no-checkout "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$WORK_DIR/repo"
@@ -40,7 +42,13 @@ git config user.email "github-actions[bot]@users.noreply.github.com"
 
 # Checkout or create releases branch
 echo "Setting up $RELEASES_BRANCH branch..."
-if git ls-remote --exit-code --heads origin $RELEASES_BRANCH >/dev/null 2>&1; then
+if [[ "${FORCE_REBUILD:-false}" == "true" ]]; then
+  echo "Force rebuild requested - resetting $RELEASES_BRANCH to a new orphan commit."
+  git checkout --orphan $RELEASES_BRANCH
+  git rm -rf . 2>/dev/null || true
+  git commit --allow-empty -m "Initialize $RELEASES_BRANCH branch (force rebuild)"
+  git push --force "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" $RELEASES_BRANCH
+elif git ls-remote --exit-code --heads origin $RELEASES_BRANCH >/dev/null 2>&1; then
   git checkout $RELEASES_BRANCH
   git pull origin $RELEASES_BRANCH || true
 else
@@ -57,16 +65,12 @@ echo "Fetching plugins from $SOURCE_BRANCH..."
 git fetch origin $SOURCE_BRANCH
 git checkout origin/$SOURCE_BRANCH -- plugins
 
-mkdir -p releases
+mkdir -p zips
 
 # --- Phases ---
 echo ""
 echo "=== Building ZIPs ==="
 bash "$SCRIPT_DIR/build-zips.sh"
-
-echo ""
-echo "=== Generating per-plugin READMEs ==="
-bash "$SCRIPT_DIR/plugin-readmes.sh"
 
 echo ""
 echo "=== Cleaning up old releases ==="
@@ -77,6 +81,10 @@ echo "=== Generating manifests ==="
 bash "$SCRIPT_DIR/generate-manifest.sh"
 
 echo ""
+echo "=== Generating per-plugin READMEs ==="
+bash "$SCRIPT_DIR/plugin-readmes.sh"
+
+echo ""
 echo "=== Generating releases README ==="
 bash "$SCRIPT_DIR/releases-readme.sh"
 
@@ -85,7 +93,7 @@ echo ""
 echo "=== Committing ==="
 rm -rf plugins
 git rm -rf --cached plugins 2>/dev/null || true
-git add releases metadata manifest.json README.md
+git add zips manifest.json README.md
 
 if git diff --cached --quiet; then
   echo "No changes to commit."
