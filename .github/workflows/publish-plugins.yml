@@ -23,7 +23,7 @@ on:
   workflow_dispatch:
     inputs:
       force_rebuild:
-        description: 'Wipe and recreate the releases branch from scratch. WARNING: purges all version history — only the latest version of each plugin will be retained.'
+        description: 'Wipe and recreate the releases branch from scratch. WARNING: purges all version history - only the latest version of each plugin will be retained.'
         type: boolean
         default: false
         required: false
@@ -47,13 +47,40 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Load app ID from config
+        id: config
+        env:
+          GH_APP_ID: ${{ vars.GH_APP_ID }}
+          GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
+        run: |
+          if [[ -n "${GH_APP_ID:-}" && -n "${GH_APP_PRIVATE_KEY:-}" ]]; then
+            echo "app_id=${GH_APP_ID}" >> "$GITHUB_OUTPUT"
+            echo "use_app=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "use_app=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Generate GitHub App token
+        if: steps.config.outputs.use_app == 'true'
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ steps.config.outputs.app_id }}
+          private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+
+      - name: Log fallback to actions token
+        if: steps.config.outputs.use_app != 'true'
+        run: |
+          printf '## ⚠️ GitHub App token not available\n\nGH_APP_ID or GH_APP_PRIVATE_KEY not configured. Falling back to `GITHUB_TOKEN` (github-actions[bot] identity).\n' >> "$GITHUB_STEP_SUMMARY"
+
       - name: Make scripts executable
         run: chmod +x .github/scripts/publish/*.sh
 
       - name: Publish plugins to releases branch
         id: publish
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.config.outputs.use_app == 'true' && steps.app-token.outputs.token || github.token }}
+          APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
