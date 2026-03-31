@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-03-31T19:20:19Z",
+  "manifest": {
+    "name": "Dispatcharr Exporter",
+    "description": "Expose Dispatcharr metrics in Prometheus exporter-compatible format for monitoring",
+    "license": "MIT",
+    "discord_thread": "https://discord.com/channels/1340492560220684331/1451260201775923421",
+    "author": "sethwv",
+    "repo_url": "https://github.com/sethwv/dispatcharr-exporter",
+    "slug": "dispatcharr-exporter",
+    "registry_url": "https://github.com/Dispatcharr/Plugins",
+    "registry_name": "Dispatcharr/Plugins",
+    "versions": [
+      {
+        "version": "2.4.2",
+        "commit_sha": "38c7af86f91d7c642ceeab658d2a4689aed0fad8",
+        "commit_sha_short": "38c7af8",
+        "build_timestamp": "2026-03-31T19:20:19Z",
+        "last_updated": "2026-03-30T15:09:15-04:00",
+        "checksum_md5": "43bd4ec43fb699d7c114da3bc53834f2",
+        "checksum_sha256": "7ee814c48358ab657a6c866e7aebf8459e061927a93e89c2042939d18b7a4b21",
+        "min_dispatcharr_version": "v0.19.0",
+        "url": "zips/dispatcharr-exporter/dispatcharr-exporter-2.4.2.zip"
+      }
+    ],
+    "last_updated": "2026-03-30T15:09:15-04:00",
+    "latest": {
+      "version": "2.4.2",
+      "commit_sha": "38c7af86f91d7c642ceeab658d2a4689aed0fad8",
+      "commit_sha_short": "38c7af8",
+      "build_timestamp": "2026-03-31T19:20:19Z",
+      "last_updated": "2026-03-30T15:09:15-04:00",
+      "checksum_md5": "43bd4ec43fb699d7c114da3bc53834f2",
+      "checksum_sha256": "7ee814c48358ab657a6c866e7aebf8459e061927a93e89c2042939d18b7a4b21",
+      "min_dispatcharr_version": "v0.19.0",
+      "latest_url": "zips/dispatcharr-exporter/dispatcharr-exporter-latest.zip",
+      "url": "zips/dispatcharr-exporter/dispatcharr-exporter-2.4.2.zip"
+    }
+  },
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCacwecwAKCRB+wDprTCI0\nzh8zAPkBgHj5K89u+hi0HI901XGvNXsd5GpuWyoN1MQ0YlViZgD/cPfuWiQwHoZT\nQGYDC0K7wXkK2faIE9D+ODIVZg1nTgA=\n=i97M\n-----END PGP SIGNATURE-----"
+}
