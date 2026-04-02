@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-02T13:11:42Z",
+  "generated_at": "2026-04-02T15:53:59Z",
   "manifest": {
     "name": "Dispatchwrapparr",
     "description": "An intelligent DRM/Clearkey capable stream profile for Dispatcharr",
@@ -36,9 +36,9 @@
       "checksum_md5": "aa6727ebe8ce16bd23aa9f7f54e783f9",
       "checksum_sha256": "3e97ed6d1ab0e80c3cb4bb49980eb3dc001a5d7c20ba499dd0e1388fce3629f5",
       "min_dispatcharr_version": "v0.21.0",
-      "latest_url": "zips/dispatchwrapparr/dispatchwrapparr-latest.zip",
-      "url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.0.zip"
+      "url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.0.zip",
+      "latest_url": "zips/dispatchwrapparr/dispatchwrapparr-latest.zip"
     }
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCac5rDwAKCRB+wDprTCI0\nzg1LAQDQ6tqhBkn2JXkRBg+xOmnKBtbdBH0atViAkdTK7JMAOwEAhTGmaMnGBe/Z\nJxDAnB6MlHr7tHeV0QlY2C7KgPZWOAc=\n=zXCh\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCac6RFwAKCRB+wDprTCI0\nzvyYAP9a4BcQrgHWLDSAY9RQ1HiNHl0IF/OI99MZSaxwq0VhqgD/RBS9dJ8z2VuH\nnVmsDRSCXUJISmE1JwV6xep4bYfh5Q4=\n=/dFI\n-----END PGP SIGNATURE-----"
 }

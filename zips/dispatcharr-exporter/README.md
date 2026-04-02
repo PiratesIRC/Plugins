@@ -2,17 +2,13 @@
 
 # Dispatcharr Exporter
 
+**Version:** `2.4.2` | **Author:** sethwv | **Last Updated:** Mar 30 2026, 19:09 UTC
+
 Expose Dispatcharr metrics in Prometheus exporter-compatible format for monitoring
 
-**Author:** sethwv
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://spdx.org/licenses/MIT.html) [![Discord](https://img.shields.io/badge/Discord-Discussion-5865F2?style=flat-square&logo=discord&logoColor=white)](https://discord.com/channels/1340492560220684331/1451260201775923421) [![Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/sethwv/dispatcharr-exporter)
 
-**Repository:** [https://github.com/sethwv/dispatcharr-exporter](https://github.com/sethwv/dispatcharr-exporter)
-
-**Discord:** [Discussion Thread](https://discord.com/channels/1340492560220684331/1451260201775923421)
-
-**License:** [MIT](https://spdx.org/licenses/MIT.html)
-
-**Dispatcharr Compatibility:** v0.19.0+
+![Dispatcharr min](https://img.shields.io/badge/Dispatcharr_min-v0.19.0-brightgreen?style=flat-square)
 
 ## Downloads
 

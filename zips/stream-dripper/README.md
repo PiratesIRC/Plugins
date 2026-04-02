@@ -2,11 +2,11 @@
 
 # Stream Dripper
 
+**Version:** `1.0.0` | **Author:** Megamannen | **Last Updated:** Mar 29 2026, 15:51 UTC
+
 Automatically drops all active streams once per day at a configured time, with a manual drop-now button.
 
-**Author:** Megamannen
-
-**License:** [Artistic-2.0](https://spdx.org/licenses/Artistic-2.0.html)
+[![License: Artistic-2.0](https://img.shields.io/badge/License-Artistic--2.0-blue?style=flat-square)](https://spdx.org/licenses/Artistic-2.0.html)
 
 ## Downloads
 

@@ -2,17 +2,13 @@
 
 # Dispatchwrapparr
 
+**Version:** `1.6.0` | **Author:** jordandalley | **Last Updated:** Apr 02 2026, 13:11 UTC
+
 An intelligent DRM/Clearkey capable stream profile for Dispatcharr
 
-**Author:** jordandalley
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://spdx.org/licenses/MIT.html) [![Discord](https://img.shields.io/badge/Discord-Discussion-5865F2?style=flat-square&logo=discord&logoColor=white)](https://discord.com/channels/1340492560220684331/1422776847703212132) [![Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/jordandalley/dispatchwrapparr)
 
-**Repository:** [https://github.com/jordandalley/dispatchwrapparr](https://github.com/jordandalley/dispatchwrapparr)
-
-**Discord:** [Discussion Thread](https://discord.com/channels/1340492560220684331/1422776847703212132)
-
-**License:** [MIT](https://spdx.org/licenses/MIT.html)
-
-**Dispatcharr Compatibility:** v0.21.0+
+![Dispatcharr min](https://img.shields.io/badge/Dispatcharr_min-v0.21.0-brightgreen?style=flat-square)
 
 ## Downloads
 
@@ -36,7 +32,7 @@ SHA256: 3e97ed6d1ab0e80c3cb4bb49980eb3dc001a5d7c20ba499dd0e1388fce3629f5
 
 ---
 
-**Source:** [Browse Plugin](https://github.com/Dispatcharr/Plugins/tree/main/plugins/dispatchwrapparr)
+**Maintainers:** michaelmurfy | **Source:** [Browse Plugin](https://github.com/Dispatcharr/Plugins/tree/main/plugins/dispatchwrapparr)
 
 **Metadata:** [View full manifest](./manifest.json)
 
