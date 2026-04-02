@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-31T19:20:19Z",
+  "generated_at": "2026-04-02T13:11:42Z",
   "manifest": {
     "registry_url": "https://github.com/Dispatcharr/Plugins",
     "registry_name": "Dispatcharr/Plugins",
@@ -20,6 +20,20 @@
         "min_dispatcharr_version": "v0.19.0"
       },
       {
+        "slug": "dispatchwrapparr",
+        "name": "Dispatchwrapparr",
+        "description": "An intelligent DRM/Clearkey capable stream profile for Dispatcharr",
+        "manifest_url": "zips/dispatchwrapparr/manifest.json",
+        "author": "jordandalley",
+        "license": "MIT",
+        "last_updated": "2026-04-02T09:11:30-04:00",
+        "latest_version": "1.6.0",
+        "latest_md5": "aa6727ebe8ce16bd23aa9f7f54e783f9",
+        "latest_sha256": "3e97ed6d1ab0e80c3cb4bb49980eb3dc001a5d7c20ba499dd0e1388fce3629f5",
+        "latest_url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.0.zip",
+        "min_dispatcharr_version": "v0.21.0"
+      },
+      {
         "slug": "stream-dripper",
         "name": "Stream Dripper",
         "description": "Automatically drops all active streams once per day at a configured time, with a manual drop-now button.",
@@ -34,5 +48,5 @@
       }
     ]
   },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCacwedAAKCRB+wDprTCI0\nztuKAP0RYX9vLkJHNmv7LhmAtmSGUEAIPY8nonpsbwfWhhVvBgD/ao+maJpTyHoM\nnYFY/ydRbUt0rqME4KGKnMeMSm2TMw4=\n=aeH7\n-----END PGP SIGNATURE-----"
+  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCac5rDwAKCRB+wDprTCI0\nzosjAP97Y7xBPq63vT8Lx2PDCn5UKfBGrrqeP4RisqTDWiYOrgEA8+WUD06GuGjB\nJU7KJ0IPA+RKEv7WSaX8pObqd102YgQ=\n=x27P\n-----END PGP SIGNATURE-----"
 }
