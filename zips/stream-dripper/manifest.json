@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-04-02T13:11:42Z",
+  "generated_at": "2026-04-12T18:52:56Z",
   "manifest": {
     "name": "Stream Dripper",
     "description": "Automatically drops all active streams once per day at a configured time, with a manual drop-now button.",
     "author": "Megamannen",
     "license": "Artistic-2.0",
     "slug": "stream-dripper",
-    "registry_url": "https://github.com/Dispatcharr/Plugins",
-    "registry_name": "Dispatcharr/Plugins",
+    "registry_url": "https://github.com/PiratesIRC/Plugins",
+    "registry_name": "PiratesIRC/Plugins",
     "versions": [
       {
         "version": "1.0.0",
@@ -32,6 +32,5 @@
       "url": "zips/stream-dripper/stream-dripper-1.0.0.zip",
       "latest_url": "zips/stream-dripper/stream-dripper-latest.zip"
     }
-  },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCac5rDwAKCRB+wDprTCI0\nzjswAP96dVtvAJ5zgsLQ6bEh+H8ep3ge7hVPTM4CS2mROOGJ0wD/WoxiwPuCK26S\ngdnrc4lUkiScT73Xsa4Gmj7M2CQ9Egk=\n=9T3G\n-----END PGP SIGNATURE-----"
+  }
 }

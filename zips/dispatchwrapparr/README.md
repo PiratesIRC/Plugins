@@ -14,9 +14,9 @@ An intelligent DRM/Clearkey capable stream profile for Dispatcharr
 
 ### Latest Release
 
-- **Download:** [`dispatchwrapparr-latest.zip`](https://github.com/Dispatcharr/Plugins/raw/releases/zips/dispatchwrapparr/dispatchwrapparr-latest.zip)
+- **Download:** [`dispatchwrapparr-latest.zip`](https://github.com/PiratesIRC/Plugins/raw/releases/zips/dispatchwrapparr/dispatchwrapparr-latest.zip)
 - **Built:** Apr 02 2026, 13:11 UTC
-- **Source Commit:** [`2d4aba3`](https://github.com/Dispatcharr/Plugins/commit/2d4aba36b3e8546bef2dfd8efbb105e9f1c51638)
+- **Source Commit:** [`2d4aba3`](https://github.com/PiratesIRC/Plugins/commit/2d4aba36b3e8546bef2dfd8efbb105e9f1c51638)
 
 **Checksums:**
 ```
@@ -28,11 +28,11 @@ SHA256: 3e97ed6d1ab0e80c3cb4bb49980eb3dc001a5d7c20ba499dd0e1388fce3629f5
 
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
-| `1.6.0` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/dispatchwrapparr/dispatchwrapparr-1.6.0.zip) | Apr 02 2026, 13:11 UTC | [`2d4aba3`](https://github.com/Dispatcharr/Plugins/commit/2d4aba36b3e8546bef2dfd8efbb105e9f1c51638) | aa6727ebe8ce16bd23aa9f7f54e783f9 | 3e97ed6d1ab0e80c3cb4bb49980eb3dc001a5d7c20ba499dd0e1388fce3629f5 |
+| `1.6.0` | [Download](https://github.com/PiratesIRC/Plugins/raw/releases/zips/dispatchwrapparr/dispatchwrapparr-1.6.0.zip) | Apr 02 2026, 13:11 UTC | [`2d4aba3`](https://github.com/PiratesIRC/Plugins/commit/2d4aba36b3e8546bef2dfd8efbb105e9f1c51638) | aa6727ebe8ce16bd23aa9f7f54e783f9 | 3e97ed6d1ab0e80c3cb4bb49980eb3dc001a5d7c20ba499dd0e1388fce3629f5 |
 
 ---
 
-**Maintainers:** michaelmurfy | **Source:** [Browse Plugin](https://github.com/Dispatcharr/Plugins/tree/main/plugins/dispatchwrapparr)
+**Maintainers:** michaelmurfy | **Source:** [Browse Plugin](https://github.com/PiratesIRC/Plugins/tree/main/plugins/dispatchwrapparr)
 
 **Metadata:** [View full manifest](./manifest.json)
 

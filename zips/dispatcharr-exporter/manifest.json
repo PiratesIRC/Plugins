@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-02T13:11:42Z",
+  "generated_at": "2026-04-12T18:52:56Z",
   "manifest": {
     "name": "Dispatcharr Exporter",
     "description": "Expose Dispatcharr metrics in Prometheus exporter-compatible format for monitoring",
@@ -8,8 +8,8 @@
     "author": "sethwv",
     "repo_url": "https://github.com/sethwv/dispatcharr-exporter",
     "slug": "dispatcharr-exporter",
-    "registry_url": "https://github.com/Dispatcharr/Plugins",
-    "registry_name": "Dispatcharr/Plugins",
+    "registry_url": "https://github.com/PiratesIRC/Plugins",
+    "registry_name": "PiratesIRC/Plugins",
     "versions": [
       {
         "version": "2.4.2",
@@ -36,6 +36,5 @@
       "url": "zips/dispatcharr-exporter/dispatcharr-exporter-2.4.2.zip",
       "latest_url": "zips/dispatcharr-exporter/dispatcharr-exporter-latest.zip"
     }
-  },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCac5rDgAKCRB+wDprTCI0\nzoWSAP4kXMhe7ysAA6yVkPU4x7bay0C9yCteP+NPvURPG7RHzQEAgmBVChzke2lG\nca9WaTRuH8OFjP807DmXv5nMlaw/vgk=\n=+8sm\n-----END PGP SIGNATURE-----"
+  }
 }

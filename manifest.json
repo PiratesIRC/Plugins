@@ -1,10 +1,24 @@
 {
-  "generated_at": "2026-04-02T15:53:59Z",
+  "generated_at": "2026-04-12T18:52:56Z",
   "manifest": {
-    "registry_url": "https://github.com/Dispatcharr/Plugins",
-    "registry_name": "Dispatcharr/Plugins",
-    "root_url": "https://raw.githubusercontent.com/Dispatcharr/Plugins/releases",
+    "registry_url": "https://github.com/PiratesIRC/Plugins",
+    "registry_name": "PiratesIRC/Plugins",
+    "root_url": "https://raw.githubusercontent.com/PiratesIRC/Plugins/releases",
     "plugins": [
+      {
+        "slug": "channel-mapparr",
+        "name": "Channel Mapparr",
+        "description": "Standardizes broadcast (OTA) and premium/cable channel names using network data and channel lists. Supports M3U stream import, category organization, and fuzzy matching across 42K+ channels in 11 c...",
+        "manifest_url": "zips/channel-mapparr/manifest.json",
+        "author": "PiratesIRC",
+        "license": "MIT",
+        "last_updated": "2026-04-10T12:07:46-04:00",
+        "latest_version": "1.26.1001200",
+        "latest_md5": "742016fbc2a484f186dbac917b708482",
+        "latest_sha256": "e0f5db0cf65e7b92f1e8137d7167d1a10d03f8c3d964c3e8ac5dca29d28a838e",
+        "latest_url": "zips/channel-mapparr/channel-mapparr-1.26.1001200.zip",
+        "min_dispatcharr_version": "v0.20.0"
+      },
       {
         "slug": "dispatcharr-exporter",
         "name": "Dispatcharr Exporter",
@@ -34,6 +48,48 @@
         "min_dispatcharr_version": "v0.21.0"
       },
       {
+        "slug": "event-channel-managarr",
+        "name": "Event Channel Managarr",
+        "description": "Automates channel visibility by hiding channels without events and showing those with events, based on EPG data and channel names.",
+        "manifest_url": "zips/event-channel-managarr/manifest.json",
+        "author": "PiratesIRC",
+        "license": "MIT",
+        "last_updated": "2026-04-05T17:33:12-04:00",
+        "latest_version": "0.7.0",
+        "latest_md5": "42f422babd0ef4130a2a1c4cd5bb53e5",
+        "latest_sha256": "04d20e93255ef9b857930da432bbb31d53f288bfc0eca3ad6c274d2419afc82b",
+        "latest_url": "zips/event-channel-managarr/event-channel-managarr-0.7.0.zip",
+        "min_dispatcharr_version": "v0.20.0"
+      },
+      {
+        "slug": "iptv-checker",
+        "name": "IPTV Checker",
+        "description": "A Dispatcharr Plugin that goes through a playlist to check IPTV channels",
+        "manifest_url": "zips/iptv-checker/manifest.json",
+        "author": "PiratesIRC",
+        "license": "MIT",
+        "last_updated": "2026-04-05T17:33:35-04:00",
+        "latest_version": "0.8.0",
+        "latest_md5": "777bb1d33cc4d17dfdebb22672215dd2",
+        "latest_sha256": "576694347d7091dfab329c0652bf8c29cfd911db73faf16b979c8c592e808966",
+        "latest_url": "zips/iptv-checker/iptv-checker-0.8.0.zip",
+        "min_dispatcharr_version": "v0.20.0"
+      },
+      {
+        "slug": "lineuparr",
+        "name": "Lineuparr",
+        "description": "Mirror real-world provider channel lineups by creating channel groups, channels, and fuzzy-matching IPTV streams to them.",
+        "manifest_url": "zips/lineuparr/manifest.json",
+        "author": "PiratesIRC",
+        "license": "MIT",
+        "last_updated": "2026-04-05T17:34:34-04:00",
+        "latest_version": "1.26.9520",
+        "latest_md5": "2861e50c59d892f532f31d895a8a60b4",
+        "latest_sha256": "cb840b37b6ed26a9c63c70d05971834938bc37ca55bab025ba95b631f88e9d03",
+        "latest_url": "zips/lineuparr/lineuparr-1.26.9520.zip",
+        "min_dispatcharr_version": "v0.20.0"
+      },
+      {
         "slug": "stream-dripper",
         "name": "Stream Dripper",
         "description": "Automatically drops all active streams once per day at a configured time, with a manual drop-now button.",
@@ -45,8 +101,21 @@
         "latest_md5": "a83c3907d2221782c64feed3937d750c",
         "latest_sha256": "552e63a9468cc0c79584da687b58402516fcf4da639c33ecc0f2350aa6e5d619",
         "latest_url": "zips/stream-dripper/stream-dripper-1.0.0.zip"
+      },
+      {
+        "slug": "stream-mapparr",
+        "name": "Stream-Mapparr",
+        "description": "Automatically add matching streams to channels based on name similarity and quality precedence. Supports unlimited stream matching, channel visibility management, and CSV export cleanup.",
+        "manifest_url": "zips/stream-mapparr/manifest.json",
+        "author": "PiratesIRC",
+        "license": "MIT",
+        "last_updated": "2026-04-05T17:34:17-04:00",
+        "latest_version": "0.9.0",
+        "latest_md5": "98533f0c64f5a24790f75a6a60dd73ca",
+        "latest_sha256": "e023ea0d51954edd23ee79bdc704ca32780b924864078f4a2d66200a5d484142",
+        "latest_url": "zips/stream-mapparr/stream-mapparr-0.9.0.zip",
+        "min_dispatcharr_version": "v0.20.0"
       }
     ]
-  },
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQRGqTBWjg+5yoNM1/h+wDprTCI0zgUCac6RGAAKCRB+wDprTCI0\nzgHyAP42571ejDVDZV45Bm2SwRZAxGy9xbS2NLTSqMLJuu0roAD+IfKKcLaZahvf\nccyKC5J2kMTgP20a+ESFhQ7cF9CLtQ8=\n=1YNh\n-----END PGP SIGNATURE-----"
+  }
 }

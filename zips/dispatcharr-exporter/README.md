@@ -14,9 +14,9 @@ Expose Dispatcharr metrics in Prometheus exporter-compatible format for monitori
 
 ### Latest Release
 
-- **Download:** [`dispatcharr-exporter-latest.zip`](https://github.com/Dispatcharr/Plugins/raw/releases/zips/dispatcharr-exporter/dispatcharr-exporter-latest.zip)
+- **Download:** [`dispatcharr-exporter-latest.zip`](https://github.com/PiratesIRC/Plugins/raw/releases/zips/dispatcharr-exporter/dispatcharr-exporter-latest.zip)
 - **Built:** Mar 31 2026, 19:20 UTC
-- **Source Commit:** [`38c7af8`](https://github.com/Dispatcharr/Plugins/commit/38c7af86f91d7c642ceeab658d2a4689aed0fad8)
+- **Source Commit:** [`38c7af8`](https://github.com/PiratesIRC/Plugins/commit/38c7af86f91d7c642ceeab658d2a4689aed0fad8)
 
 **Checksums:**
 ```
@@ -28,10 +28,10 @@ SHA256: 7ee814c48358ab657a6c866e7aebf8459e061927a93e89c2042939d18b7a4b21
 
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
-| `2.4.2` | [Download](https://github.com/Dispatcharr/Plugins/raw/releases/zips/dispatcharr-exporter/dispatcharr-exporter-2.4.2.zip) | Mar 31 2026, 19:20 UTC | [`38c7af8`](https://github.com/Dispatcharr/Plugins/commit/38c7af86f91d7c642ceeab658d2a4689aed0fad8) | 43bd4ec43fb699d7c114da3bc53834f2 | 7ee814c48358ab657a6c866e7aebf8459e061927a93e89c2042939d18b7a4b21 |
+| `2.4.2` | [Download](https://github.com/PiratesIRC/Plugins/raw/releases/zips/dispatcharr-exporter/dispatcharr-exporter-2.4.2.zip) | Mar 31 2026, 19:20 UTC | [`38c7af8`](https://github.com/PiratesIRC/Plugins/commit/38c7af86f91d7c642ceeab658d2a4689aed0fad8) | 43bd4ec43fb699d7c114da3bc53834f2 | 7ee814c48358ab657a6c866e7aebf8459e061927a93e89c2042939d18b7a4b21 |
 
 ---
 
-**Source:** [Browse Plugin](https://github.com/Dispatcharr/Plugins/tree/main/plugins/dispatcharr-exporter)
+**Source:** [Browse Plugin](https://github.com/PiratesIRC/Plugins/tree/main/plugins/dispatcharr-exporter)
 
 **Metadata:** [View full manifest](./manifest.json)
