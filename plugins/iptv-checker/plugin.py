@@ -73,7 +73,12 @@ class PluginConfig:
     SCHEDULER_STOP_TIMEOUT = 5  # Max wait for thread to stop
 
     # --- ETA Estimation ---
-    ESTIMATED_SECONDS_PER_STREAM = 10  # Average time per stream check
+    # Fallback only; _estimate_check_seconds models a realistic mix.
+    ESTIMATED_SECONDS_PER_STREAM = 10
+    # Assume 20% of streams fail and burn the full probe_timeout * (1+retries).
+    ESTIMATED_DEAD_RATE = 0.2
+    # Per-stream overhead on top of ffprobe analysis (TCP connect, teardown).
+    ESTIMATED_PROBE_OVERHEAD_SECONDS = 2
 
     # --- Version Check ---
     VERSION_CHECK_DURATION = 86400  # Cache version check for 24 hours
@@ -137,7 +142,7 @@ class Plugin:
     
     # Explicitly set the plugin key
     key = "iptv_checker"
-    version = "0.8.0"
+    version = "1.26.1081815"
 
     # Fields and actions are defined in plugin.json (single source of truth)
     def __init__(self):
@@ -153,6 +158,20 @@ class Plugin:
         self.version_check_cache = None  # Cached version check result
         self.version_check_time = None  # Time when version was last checked
         LOGGER.info(f"Plugin v{self.version} initialized")
+
+        # Start scheduler on init so it survives container restarts
+        self._init_scheduler()
+
+    def _init_scheduler(self):
+        """Load saved settings from DB and start the scheduler if configured."""
+        try:
+            from apps.plugins.models import PluginConfig as DBPluginConfig
+            cfg = DBPluginConfig.objects.filter(key=self.key).first()
+            if cfg and cfg.settings and cfg.settings.get("scheduled_times", "").strip():
+                LOGGER.info("Loading saved settings for scheduler startup")
+                self._start_background_scheduler(cfg.settings)
+        except Exception as e:
+            LOGGER.warning(f"Could not load settings for scheduler on init: {e}")
 
     def _try_start_thread(self, target, args):
         """Atomically check if a thread is running and start a new one.
@@ -1109,33 +1128,42 @@ class Plugin:
 
         return self._build_load_success_message(loaded_channels, settings, group_names_str, target_group_names)
     
+    def _estimate_check_seconds(self, total_streams, settings):
+        """Wall-clock estimate for a full check, including cooldown, retries, and an assumed dead rate."""
+        workers = max(1, int(settings.get("parallel_workers", 2) or 1)) if settings.get("enable_parallel_checking", False) else 1
+        analysis = float(settings.get("ffprobe_analysis_duration", 5) or 0)
+        probe_timeout = float(settings.get("probe_timeout", 20) or 0)
+        retries = max(0, int(settings.get("dead_connection_retries", 3) or 0))
+        delay = max(0, float(settings.get("stream_check_delay", 2) or 0))
+        overhead = PluginConfig.ESTIMATED_PROBE_OVERHEAD_SECONDS
+        dead_rate = PluginConfig.ESTIMATED_DEAD_RATE
+
+        per_alive = analysis + overhead
+        per_dead = probe_timeout * (1 + retries)
+        avg_per_stream = ((1 - dead_rate) * per_alive) + (dead_rate * per_dead) + delay
+        return (avg_per_stream * total_streams) / workers
+
     def _build_load_success_message(self, loaded_channels, settings, group_names_str, target_group_names):
         """Build success message for load groups action"""
         total_streams = sum(len(c.get('streams', [])) for c in loaded_channels)
         group_msg = "all groups" if not group_names_str else f"group(s): {', '.join(target_group_names)}"
-        
+
         parallel_enabled = settings.get("enable_parallel_checking", False)
         parallel_workers = settings.get("parallel_workers", 2)
         check_alternative_streams = settings.get("check_alternative_streams", True)
 
-        # Estimate time based on mode
-        sps = PluginConfig.ESTIMATED_SECONDS_PER_STREAM
-        if parallel_enabled:
-            estimated_seconds = (total_streams / parallel_workers) * sps
-            mode_info = f"parallel mode with {parallel_workers} workers"
-        else:
-            estimated_seconds = total_streams * sps
-            mode_info = "sequential mode"
-
-        estimated_minutes = int(estimated_seconds / 60)
+        mode_info = f"parallel mode with {parallel_workers} workers" if parallel_enabled else "sequential mode"
+        estimated_seconds = self._estimate_check_seconds(total_streams, settings)
+        estimated_minutes = max(1, int(estimated_seconds / 60))
         stream_type_msg = "streams (including alternatives)" if check_alternative_streams else "streams (primary only)"
         
-        message = f"Successfully loaded {len(loaded_channels)} channels with {total_streams} {stream_type_msg} from {group_msg}."
-        
         if total_streams > 0:
-            message += f"\n\nNext, click '▶️ Start Stream Check'\nEstimated time: ~{estimated_minutes} minutes ({mode_info})"
-            if not parallel_enabled and total_streams > 50:
-                message += f"\n\nTip: Enable 'Parallel Stream Checking' in settings to speed up processing significantly!"
+            message = (
+                f"Loaded {len(loaded_channels)} channels / {total_streams} {stream_type_msg} from {group_msg}. "
+                f"Estimated check time: ~{estimated_minutes} min ({mode_info}). Next: click Start Stream Check."
+            )
+        else:
+            message = f"Loaded {len(loaded_channels)} channels / 0 streams from {group_msg}."
 
         return {"status": "ok", "message": message}
 
@@ -1159,22 +1187,17 @@ class Plugin:
 
         # Try to start background thread atomically
         if not self._try_start_thread(self._process_streams_background, (all_streams, settings, logger)):
-            return {"status": "ok", "message": "A stream check is already running.\n\nUse '📊 View Check Progress' to monitor the current check."}
+            return {"status": "ok", "message": "A stream check is already running. Use View Check Progress to monitor."}
 
         logger.info(f"Starting check for {len(all_streams)} streams...")
 
         # Calculate estimated time for the response message
         parallel_enabled = settings.get("enable_parallel_checking", False)
         parallel_workers = settings.get("parallel_workers", 2)
-        sps = PluginConfig.ESTIMATED_SECONDS_PER_STREAM
-        if parallel_enabled:
-            estimated_total_time = int((len(all_streams) / parallel_workers) * sps / 60)
-            mode_info = f"parallel mode with {parallel_workers} workers"
-        else:
-            estimated_total_time = int(len(all_streams) * sps / 60)
-            mode_info = "sequential mode"
+        mode_info = f"parallel mode with {parallel_workers} workers" if parallel_enabled else "sequential mode"
+        estimated_total_time = max(1, int(self._estimate_check_seconds(len(all_streams), settings) / 60))
 
-        return {"status": "ok", "message": f"✅ Stream checking started for {len(all_streams)} streams\nEstimated time: ~{estimated_total_time} minutes ({mode_info})\n\nUse '📊 View Check Progress' to monitor progress.", "background": True}
+        return {"status": "ok", "message": f"Stream check started for {len(all_streams)} streams. Estimated time: ~{estimated_total_time} min ({mode_info}). Use View Check Progress to monitor.", "background": True}
 
     def _process_streams_background(self, all_streams, settings, logger):
         """Background processing of streams to avoid request timeout"""
@@ -1190,6 +1213,7 @@ class Plugin:
         results = []
         timeout = settings.get("timeout", 10)
         retries = settings.get("dead_connection_retries", 3)
+        delay = max(0, float(settings.get("stream_check_delay", 2) or 0))
         self.timeout_retry_queue = []
         streams_processed_since_retry = 0
         tracker = ProgressTracker(len(all_streams), "Stream Check", logger)
@@ -1272,8 +1296,9 @@ class Plugin:
 
                     streams_processed_since_retry = 0
 
-                # Add 3 second delay between stream checks
-                time.sleep(3)
+                # Cooldown between stream checks (configurable)
+                if delay > 0:
+                    time.sleep(delay)
 
             # Process any remaining timeout retries
             while self.timeout_retry_queue:
@@ -1319,7 +1344,18 @@ class Plugin:
         timeout = settings.get("timeout", 10)
         retries = settings.get("dead_connection_retries", 3)
         workers = settings.get("parallel_workers", 2)
+        delay = max(0, float(settings.get("stream_check_delay", 2) or 0))
         tracker = ProgressTracker(len(all_streams), "Stream Check (Parallel)", logger)
+
+        def check_with_cooldown(stream_data, retry_attempt=0):
+            if self._stop_event.is_set():
+                return {'status': 'Dead', 'error': 'Cancelled by user', 'error_type': 'Cancelled',
+                        'format': 'N/A', 'framerate_num': 0, 'ffprobe_data': {}}
+            try:
+                return self.check_stream(stream_data, timeout, 0, logger, skip_retries=True, settings=settings, retry_attempt=retry_attempt)
+            finally:
+                if delay > 0 and not self._stop_event.is_set():
+                    time.sleep(delay)
 
         # Thread-safe data structures
         results_lock = threading.Lock()
@@ -1339,14 +1375,14 @@ class Plugin:
             with ThreadPoolExecutor(max_workers=workers) as executor:
                 # Submit all stream checks
                 future_to_index = {
-                    executor.submit(self.check_stream, stream_data, timeout, 0, logger, skip_retries=True, settings=settings, retry_attempt=0): i
+                    executor.submit(check_with_cooldown, stream_data, 0): i
                     for i, stream_data in enumerate(all_streams)
                 }
 
                 # Process results as they complete
                 for future in as_completed(future_to_index):
                     if self._stop_event.is_set():
-                        executor.shutdown(wait=False)
+                        executor.shutdown(wait=False, cancel_futures=True)
                         break
 
                     index = future_to_index[future]
@@ -1402,23 +1438,38 @@ class Plugin:
                 if retry_streams:
                     logger.info(f"Found {len(retry_streams)} streams with retryable errors, retrying...")
 
+                    # Expose retry work to the ETA: grow total so progress doesn't hit 100% prematurely.
+                    with results_lock:
+                        self.check_progress["total"] = len(all_streams) + (len(retry_streams) * retries)
+                        self._save_progress()
+
                     for retry_pass in range(retries):
-                        if not retry_streams:
+                        if not retry_streams or self._stop_event.is_set():
                             break
+
+                        # Backoff between retry passes so the provider can release slots
+                        backoff = delay * 3
+                        if backoff > 0:
+                            logger.info(f"Waiting {backoff:.1f}s before retry pass to let provider release connection slots")
+                            if self._stop_event.wait(backoff):
+                                break
 
                         logger.info(f"Retry attempt {retry_pass + 1}/{retries} for {len(retry_streams)} streams")
 
                         with ThreadPoolExecutor(max_workers=workers) as executor:
                             future_to_result_index = {
                                 executor.submit(
-                                    self.check_stream,
+                                    check_with_cooldown,
                                     {k: v for k, v in result.items() if k in ['channel_id', 'channel_name', 'stream_url', 'stream_id']},
-                                    timeout, 0, logger, skip_retries=True, settings=settings, retry_attempt=retry_pass + 1
+                                    retry_pass + 1
                                 ): result_index
                                 for result_index, result in retry_streams
                             }
 
                             for future in as_completed(future_to_result_index):
+                                if self._stop_event.is_set():
+                                    executor.shutdown(wait=False, cancel_futures=True)
+                                    break
                                 result_index = future_to_result_index[future]
                                 try:
                                     retry_result = future.result()
@@ -1440,9 +1491,19 @@ class Plugin:
                                     results[result_index] = {**results[result_index], **retry_result}
                                 except Exception as e:
                                     logger.error(f"Error during retry: {e}")
+                                finally:
+                                    with results_lock:
+                                        self.check_progress["current"] += 1
+                                        self._save_progress()
 
                         # Find remaining streams with retryable errors for next retry
                         retry_streams = [(i, r) for i, r in enumerate(results) if r.get('error_type') in retryable_errors]
+
+                    # If fewer retries ran than budgeted (early success / cancel), snap progress to total.
+                    with results_lock:
+                        if self.check_progress["current"] < self.check_progress["total"]:
+                            self.check_progress["current"] = self.check_progress["total"]
+                            self._save_progress()
 
             self._save_json_file(self.results_file, results, indent=2)
 
