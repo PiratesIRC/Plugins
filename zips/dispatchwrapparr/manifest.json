@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-12T18:52:56Z",
+  "generated_at": "2026-04-18T16:28:16Z",
   "manifest": {
     "name": "Dispatchwrapparr",
     "description": "An intelligent DRM/Clearkey capable stream profile for Dispatcharr",
@@ -15,6 +15,18 @@
     "registry_name": "PiratesIRC/Plugins",
     "versions": [
       {
+        "version": "1.6.1",
+        "commit_sha": "7ac9bb7cacde52e3a3ba7a9a5925789c97c5f65b",
+        "commit_sha_short": "7ac9bb7",
+        "build_timestamp": "2026-04-18T16:28:15Z",
+        "last_updated": "2026-04-16T07:17:42-04:00",
+        "checksum_md5": "098b185cc59717186b856f3b4db39847",
+        "checksum_sha256": "cd7f1234bd3446b7414e2c0a0d08bb555f5722be7bdd897447f8bb2d79569a46",
+        "min_dispatcharr_version": "v0.21.0",
+        "url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.1.zip",
+        "size": 42
+      },
+      {
         "version": "1.6.0",
         "commit_sha": "2d4aba36b3e8546bef2dfd8efbb105e9f1c51638",
         "commit_sha_short": "2d4aba3",
@@ -23,21 +35,23 @@
         "checksum_md5": "aa6727ebe8ce16bd23aa9f7f54e783f9",
         "checksum_sha256": "3e97ed6d1ab0e80c3cb4bb49980eb3dc001a5d7c20ba499dd0e1388fce3629f5",
         "min_dispatcharr_version": "v0.21.0",
-        "url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.0.zip"
+        "url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.0.zip",
+        "size": 42
       }
     ],
-    "last_updated": "2026-04-02T09:11:30-04:00",
+    "last_updated": "2026-04-16T07:17:42-04:00",
     "latest": {
-      "version": "1.6.0",
-      "commit_sha": "2d4aba36b3e8546bef2dfd8efbb105e9f1c51638",
-      "commit_sha_short": "2d4aba3",
-      "build_timestamp": "2026-04-02T13:11:42Z",
-      "last_updated": "2026-04-02T09:11:30-04:00",
-      "checksum_md5": "aa6727ebe8ce16bd23aa9f7f54e783f9",
-      "checksum_sha256": "3e97ed6d1ab0e80c3cb4bb49980eb3dc001a5d7c20ba499dd0e1388fce3629f5",
+      "version": "1.6.1",
+      "commit_sha": "7ac9bb7cacde52e3a3ba7a9a5925789c97c5f65b",
+      "commit_sha_short": "7ac9bb7",
+      "build_timestamp": "2026-04-18T16:28:15Z",
+      "last_updated": "2026-04-16T07:17:42-04:00",
+      "checksum_md5": "098b185cc59717186b856f3b4db39847",
+      "checksum_sha256": "cd7f1234bd3446b7414e2c0a0d08bb555f5722be7bdd897447f8bb2d79569a46",
       "min_dispatcharr_version": "v0.21.0",
-      "url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.0.zip",
-      "latest_url": "zips/dispatchwrapparr/dispatchwrapparr-latest.zip"
+      "latest_url": "zips/dispatchwrapparr/dispatchwrapparr-latest.zip",
+      "url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.1.zip",
+      "size": 42
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-12T18:52:56Z",
+  "generated_at": "2026-04-18T16:28:16Z",
   "manifest": {
     "name": "IPTV Checker",
     "description": "A Dispatcharr Plugin that goes through a playlist to check IPTV channels",
@@ -19,7 +19,8 @@
         "checksum_md5": "777bb1d33cc4d17dfdebb22672215dd2",
         "checksum_sha256": "576694347d7091dfab329c0652bf8c29cfd911db73faf16b979c8c592e808966",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "zips/iptv-checker/iptv-checker-0.8.0.zip"
+        "url": "zips/iptv-checker/iptv-checker-0.8.0.zip",
+        "size": 38
       }
     ],
     "last_updated": "2026-04-05T17:33:35-04:00",
@@ -32,8 +33,9 @@
       "checksum_md5": "777bb1d33cc4d17dfdebb22672215dd2",
       "checksum_sha256": "576694347d7091dfab329c0652bf8c29cfd911db73faf16b979c8c592e808966",
       "min_dispatcharr_version": "v0.20.0",
+      "url": "zips/iptv-checker/iptv-checker-0.8.0.zip",
       "latest_url": "zips/iptv-checker/iptv-checker-latest.zip",
-      "url": "zips/iptv-checker/iptv-checker-0.8.0.zip"
+      "size": 38
     }
   }
 }

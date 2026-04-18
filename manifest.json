@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-12T18:52:56Z",
+  "generated_at": "2026-04-18T16:28:16Z",
   "manifest": {
     "registry_url": "https://github.com/PiratesIRC/Plugins",
     "registry_name": "PiratesIRC/Plugins",
@@ -17,6 +17,7 @@
         "latest_md5": "742016fbc2a484f186dbac917b708482",
         "latest_sha256": "e0f5db0cf65e7b92f1e8137d7167d1a10d03f8c3d964c3e8ac5dca29d28a838e",
         "latest_url": "zips/channel-mapparr/channel-mapparr-1.26.1001200.zip",
+        "latest_size": 511,
         "min_dispatcharr_version": "v0.20.0"
       },
       {
@@ -31,6 +32,7 @@
         "latest_md5": "43bd4ec43fb699d7c114da3bc53834f2",
         "latest_sha256": "7ee814c48358ab657a6c866e7aebf8459e061927a93e89c2042939d18b7a4b21",
         "latest_url": "zips/dispatcharr-exporter/dispatcharr-exporter-2.4.2.zip",
+        "latest_size": 142,
         "min_dispatcharr_version": "v0.19.0"
       },
       {
@@ -40,12 +42,28 @@
         "manifest_url": "zips/dispatchwrapparr/manifest.json",
         "author": "jordandalley",
         "license": "MIT",
-        "last_updated": "2026-04-02T09:11:30-04:00",
-        "latest_version": "1.6.0",
-        "latest_md5": "aa6727ebe8ce16bd23aa9f7f54e783f9",
-        "latest_sha256": "3e97ed6d1ab0e80c3cb4bb49980eb3dc001a5d7c20ba499dd0e1388fce3629f5",
-        "latest_url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.0.zip",
+        "last_updated": "2026-04-16T07:17:42-04:00",
+        "latest_version": "1.6.1",
+        "latest_md5": "098b185cc59717186b856f3b4db39847",
+        "latest_sha256": "cd7f1234bd3446b7414e2c0a0d08bb555f5722be7bdd897447f8bb2d79569a46",
+        "latest_url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.1.zip",
+        "latest_size": 42,
         "min_dispatcharr_version": "v0.21.0"
+      },
+      {
+        "slug": "epg-janitor",
+        "name": "EPG Janitor",
+        "description": "Scans for channels with EPG assignments but no program data. Auto-matches EPG to channels using intelligent fuzzy matching with aliases, removes EPG from hidden channels, and manages EPG assignments.",
+        "manifest_url": "zips/epg-janitor/manifest.json",
+        "author": "PiratesIRC",
+        "license": "MIT",
+        "last_updated": "2026-04-12T15:22:44-04:00",
+        "latest_version": "1.26.1021352",
+        "latest_md5": "41fd9302c0b485ad400ed7a99b514ea7",
+        "latest_sha256": "dd40a951e2688be35933e98423933eb09044c1892184ba74517f1ac0315a5f07",
+        "latest_url": "zips/epg-janitor/epg-janitor-1.26.1021352.zip",
+        "latest_size": 416,
+        "min_dispatcharr_version": "v0.20.0"
       },
       {
         "slug": "event-channel-managarr",
@@ -59,6 +77,7 @@
         "latest_md5": "42f422babd0ef4130a2a1c4cd5bb53e5",
         "latest_sha256": "04d20e93255ef9b857930da432bbb31d53f288bfc0eca3ad6c274d2419afc82b",
         "latest_url": "zips/event-channel-managarr/event-channel-managarr-0.7.0.zip",
+        "latest_size": 28,
         "min_dispatcharr_version": "v0.20.0"
       },
       {
@@ -73,6 +92,7 @@
         "latest_md5": "777bb1d33cc4d17dfdebb22672215dd2",
         "latest_sha256": "576694347d7091dfab329c0652bf8c29cfd911db73faf16b979c8c592e808966",
         "latest_url": "zips/iptv-checker/iptv-checker-0.8.0.zip",
+        "latest_size": 38,
         "min_dispatcharr_version": "v0.20.0"
       },
       {
@@ -87,6 +107,7 @@
         "latest_md5": "2861e50c59d892f532f31d895a8a60b4",
         "latest_sha256": "cb840b37b6ed26a9c63c70d05971834938bc37ca55bab025ba95b631f88e9d03",
         "latest_url": "zips/lineuparr/lineuparr-1.26.9520.zip",
+        "latest_size": 232,
         "min_dispatcharr_version": "v0.20.0"
       },
       {
@@ -100,7 +121,8 @@
         "latest_version": "1.0.0",
         "latest_md5": "a83c3907d2221782c64feed3937d750c",
         "latest_sha256": "552e63a9468cc0c79584da687b58402516fcf4da639c33ecc0f2350aa6e5d619",
-        "latest_url": "zips/stream-dripper/stream-dripper-1.0.0.zip"
+        "latest_url": "zips/stream-dripper/stream-dripper-1.0.0.zip",
+        "latest_size": 30
       },
       {
         "slug": "stream-mapparr",
@@ -114,6 +136,7 @@
         "latest_md5": "98533f0c64f5a24790f75a6a60dd73ca",
         "latest_sha256": "e023ea0d51954edd23ee79bdc704ca32780b924864078f4a2d66200a5d484142",
         "latest_url": "zips/stream-mapparr/stream-mapparr-0.9.0.zip",
+        "latest_size": 319,
         "min_dispatcharr_version": "v0.20.0"
       }
     ]

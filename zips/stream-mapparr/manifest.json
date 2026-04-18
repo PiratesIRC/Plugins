@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-12T18:52:56Z",
+  "generated_at": "2026-04-18T16:28:16Z",
   "manifest": {
     "name": "Stream-Mapparr",
     "description": "Automatically add matching streams to channels based on name similarity and quality precedence. Supports unlimited stream matching, channel visibility management, and CSV export cleanup.",
@@ -19,7 +19,8 @@
         "checksum_md5": "98533f0c64f5a24790f75a6a60dd73ca",
         "checksum_sha256": "e023ea0d51954edd23ee79bdc704ca32780b924864078f4a2d66200a5d484142",
         "min_dispatcharr_version": "v0.20.0",
-        "url": "zips/stream-mapparr/stream-mapparr-0.9.0.zip"
+        "url": "zips/stream-mapparr/stream-mapparr-0.9.0.zip",
+        "size": 319
       }
     ],
     "last_updated": "2026-04-05T17:34:17-04:00",
@@ -32,8 +33,9 @@
       "checksum_md5": "98533f0c64f5a24790f75a6a60dd73ca",
       "checksum_sha256": "e023ea0d51954edd23ee79bdc704ca32780b924864078f4a2d66200a5d484142",
       "min_dispatcharr_version": "v0.20.0",
+      "url": "zips/stream-mapparr/stream-mapparr-0.9.0.zip",
       "latest_url": "zips/stream-mapparr/stream-mapparr-latest.zip",
-      "url": "zips/stream-mapparr/stream-mapparr-0.9.0.zip"
+      "size": 319
     }
   }
 }
