@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-18T19:00:34Z",
+  "generated_at": "2026-04-18T21:51:38Z",
   "manifest": {
     "registry_url": "https://github.com/PiratesIRC/Plugins",
     "registry_name": "PiratesIRC/Plugins",
@@ -27,13 +27,13 @@
         "manifest_url": "zips/dispatcharr-exporter/manifest.json",
         "author": "sethwv",
         "license": "MIT",
-        "last_updated": "2026-03-30T15:09:15-04:00",
-        "latest_version": "2.4.2",
-        "latest_md5": "43bd4ec43fb699d7c114da3bc53834f2",
-        "latest_sha256": "7ee814c48358ab657a6c866e7aebf8459e061927a93e89c2042939d18b7a4b21",
-        "latest_url": "zips/dispatcharr-exporter/dispatcharr-exporter-2.4.2.zip",
-        "latest_size": 142,
-        "min_dispatcharr_version": "v0.19.0"
+        "last_updated": "2026-04-18T15:12:37-04:00",
+        "latest_version": "3.0.0",
+        "latest_md5": "9e8664ef74857bbd596c0a1e4c6c5ff8",
+        "latest_sha256": "3c795a2ef349e6ce2a5d049d9a4d973623576e773fcfe85536bd5a9c0000d373",
+        "latest_url": "zips/dispatcharr-exporter/dispatcharr-exporter-3.0.0.zip",
+        "latest_size": 139,
+        "min_dispatcharr_version": "v0.22.0"
       },
       {
         "slug": "dispatchwrapparr",
@@ -49,6 +49,21 @@
         "latest_url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.1.zip",
         "latest_size": 42,
         "min_dispatcharr_version": "v0.21.0"
+      },
+      {
+        "slug": "embyfin-stream-cleanup",
+        "name": "Embyfin Stream Cleanup",
+        "description": "Monitors Dispatcharr client activity and terminates idle Emby/Jellyfin connections",
+        "manifest_url": "zips/embyfin-stream-cleanup/manifest.json",
+        "author": "sethwv",
+        "license": "MIT",
+        "last_updated": "2026-04-18T15:34:12-04:00",
+        "latest_version": "1.0.1",
+        "latest_md5": "51def500b6cd5228f45b762df9fb8996",
+        "latest_sha256": "7408e4ceaf1e57c87d5c5b29081b974738ed301b26f26791dff584d22024a0da",
+        "latest_url": "zips/embyfin-stream-cleanup/embyfin-stream-cleanup-1.0.1.zip",
+        "latest_size": 1565,
+        "min_dispatcharr_version": "v0.22.0"
       },
       {
         "slug": "epg-janitor",
@@ -87,12 +102,12 @@
         "manifest_url": "zips/iptv-checker/manifest.json",
         "author": "PiratesIRC",
         "license": "MIT",
-        "last_updated": "2026-04-05T17:33:35-04:00",
-        "latest_version": "0.8.0",
-        "latest_md5": "777bb1d33cc4d17dfdebb22672215dd2",
-        "latest_sha256": "576694347d7091dfab329c0652bf8c29cfd911db73faf16b979c8c592e808966",
-        "latest_url": "zips/iptv-checker/iptv-checker-0.8.0.zip",
-        "latest_size": 38,
+        "last_updated": "2026-04-18T15:11:34-04:00",
+        "latest_version": "1.26.1081815",
+        "latest_md5": "7d10fbbf37d59c16776f2a4ca720e895",
+        "latest_sha256": "fea73c749ea1199a65ab03a288ce5a5f9e3fb32229c56a1dcc38bb810ba2c177",
+        "latest_url": "zips/iptv-checker/iptv-checker-1.26.1081815.zip",
+        "latest_size": 343,
         "min_dispatcharr_version": "v0.20.0"
       },
       {

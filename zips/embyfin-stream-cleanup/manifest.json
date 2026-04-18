@@ -1,0 +1,42 @@
+{
+  "generated_at": "2026-04-18T21:51:38Z",
+  "manifest": {
+    "name": "Embyfin Stream Cleanup",
+    "description": "Monitors Dispatcharr client activity and terminates idle Emby/Jellyfin connections",
+    "license": "MIT",
+    "discord_thread": "https://discord.com/channels/1340492560220684331/1491487318832447668",
+    "author": "sethwv",
+    "repo_url": "https://github.com/sethwv/emby-stream-cleanup",
+    "slug": "embyfin-stream-cleanup",
+    "registry_url": "https://github.com/PiratesIRC/Plugins",
+    "registry_name": "PiratesIRC/Plugins",
+    "versions": [
+      {
+        "version": "1.0.1",
+        "commit_sha": "ede9f2ea1412434bf69c6e5e114347a6fdd7e140",
+        "commit_sha_short": "ede9f2e",
+        "build_timestamp": "2026-04-18T21:51:38Z",
+        "last_updated": "2026-04-18T15:34:12-04:00",
+        "checksum_md5": "51def500b6cd5228f45b762df9fb8996",
+        "checksum_sha256": "7408e4ceaf1e57c87d5c5b29081b974738ed301b26f26791dff584d22024a0da",
+        "min_dispatcharr_version": "v0.22.0",
+        "url": "zips/embyfin-stream-cleanup/embyfin-stream-cleanup-1.0.1.zip",
+        "size": 1565
+      }
+    ],
+    "last_updated": "2026-04-18T15:34:12-04:00",
+    "latest": {
+      "version": "1.0.1",
+      "commit_sha": "ede9f2ea1412434bf69c6e5e114347a6fdd7e140",
+      "commit_sha_short": "ede9f2e",
+      "build_timestamp": "2026-04-18T21:51:38Z",
+      "last_updated": "2026-04-18T15:34:12-04:00",
+      "checksum_md5": "51def500b6cd5228f45b762df9fb8996",
+      "checksum_sha256": "7408e4ceaf1e57c87d5c5b29081b974738ed301b26f26791dff584d22024a0da",
+      "min_dispatcharr_version": "v0.22.0",
+      "latest_url": "zips/embyfin-stream-cleanup/embyfin-stream-cleanup-latest.zip",
+      "url": "zips/embyfin-stream-cleanup/embyfin-stream-cleanup-1.0.1.zip",
+      "size": 1565
+    }
+  }
+}

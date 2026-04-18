@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-18T19:00:34Z",
+  "generated_at": "2026-04-18T21:51:38Z",
   "manifest": {
     "name": "Dispatcharr Exporter",
     "description": "Expose Dispatcharr metrics in Prometheus exporter-compatible format for monitoring",
@@ -11,6 +11,18 @@
     "registry_url": "https://github.com/PiratesIRC/Plugins",
     "registry_name": "PiratesIRC/Plugins",
     "versions": [
+      {
+        "version": "3.0.0",
+        "commit_sha": "d7eefa54630e8de25a980c5a894c35aa9c8e8c15",
+        "commit_sha_short": "d7eefa5",
+        "build_timestamp": "2026-04-18T21:51:38Z",
+        "last_updated": "2026-04-18T15:12:37-04:00",
+        "checksum_md5": "9e8664ef74857bbd596c0a1e4c6c5ff8",
+        "checksum_sha256": "3c795a2ef349e6ce2a5d049d9a4d973623576e773fcfe85536bd5a9c0000d373",
+        "min_dispatcharr_version": "v0.22.0",
+        "url": "zips/dispatcharr-exporter/dispatcharr-exporter-3.0.0.zip",
+        "size": 139
+      },
       {
         "version": "2.4.2",
         "commit_sha": "38c7af86f91d7c642ceeab658d2a4689aed0fad8",
@@ -24,19 +36,19 @@
         "size": 142
       }
     ],
-    "last_updated": "2026-03-30T15:09:15-04:00",
+    "last_updated": "2026-04-18T15:12:37-04:00",
     "latest": {
-      "version": "2.4.2",
-      "commit_sha": "38c7af86f91d7c642ceeab658d2a4689aed0fad8",
-      "commit_sha_short": "38c7af8",
-      "build_timestamp": "2026-03-31T19:20:19Z",
-      "last_updated": "2026-03-30T15:09:15-04:00",
-      "checksum_md5": "43bd4ec43fb699d7c114da3bc53834f2",
-      "checksum_sha256": "7ee814c48358ab657a6c866e7aebf8459e061927a93e89c2042939d18b7a4b21",
-      "min_dispatcharr_version": "v0.19.0",
-      "url": "zips/dispatcharr-exporter/dispatcharr-exporter-2.4.2.zip",
-      "size": 142,
-      "latest_url": "zips/dispatcharr-exporter/dispatcharr-exporter-latest.zip"
+      "version": "3.0.0",
+      "commit_sha": "d7eefa54630e8de25a980c5a894c35aa9c8e8c15",
+      "commit_sha_short": "d7eefa5",
+      "build_timestamp": "2026-04-18T21:51:38Z",
+      "last_updated": "2026-04-18T15:12:37-04:00",
+      "checksum_md5": "9e8664ef74857bbd596c0a1e4c6c5ff8",
+      "checksum_sha256": "3c795a2ef349e6ce2a5d049d9a4d973623576e773fcfe85536bd5a9c0000d373",
+      "min_dispatcharr_version": "v0.22.0",
+      "latest_url": "zips/dispatcharr-exporter/dispatcharr-exporter-latest.zip",
+      "url": "zips/dispatcharr-exporter/dispatcharr-exporter-3.0.0.zip",
+      "size": 139
     }
   }
 }
