@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-18T16:28:16Z",
+  "generated_at": "2026-04-18T19:00:34Z",
   "manifest": {
     "name": "Channel Mapparr",
     "description": "Standardizes broadcast (OTA) and premium/cable channel names using network data and channel lists. Supports M3U stream import, category organization, and fuzzy matching across 42K+ channels in 11 countries.",
@@ -35,8 +35,8 @@
       "checksum_sha256": "e0f5db0cf65e7b92f1e8137d7167d1a10d03f8c3d964c3e8ac5dca29d28a838e",
       "min_dispatcharr_version": "v0.20.0",
       "url": "zips/channel-mapparr/channel-mapparr-1.26.1001200.zip",
-      "latest_url": "zips/channel-mapparr/channel-mapparr-latest.zip",
-      "size": 511
+      "size": 511,
+      "latest_url": "zips/channel-mapparr/channel-mapparr-latest.zip"
     }
   }
 }

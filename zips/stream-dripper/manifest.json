@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-18T16:28:16Z",
+  "generated_at": "2026-04-18T19:00:34Z",
   "manifest": {
     "name": "Stream Dripper",
     "description": "Automatically drops all active streams once per day at a configured time, with a manual drop-now button.",
@@ -31,8 +31,8 @@
       "checksum_md5": "a83c3907d2221782c64feed3937d750c",
       "checksum_sha256": "552e63a9468cc0c79584da687b58402516fcf4da639c33ecc0f2350aa6e5d619",
       "url": "zips/stream-dripper/stream-dripper-1.0.0.zip",
-      "latest_url": "zips/stream-dripper/stream-dripper-latest.zip",
-      "size": 30
+      "size": 30,
+      "latest_url": "zips/stream-dripper/stream-dripper-latest.zip"
     }
   }
 }

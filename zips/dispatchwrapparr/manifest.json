@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-18T16:28:16Z",
+  "generated_at": "2026-04-18T19:00:34Z",
   "manifest": {
     "name": "Dispatchwrapparr",
     "description": "An intelligent DRM/Clearkey capable stream profile for Dispatcharr",
@@ -49,9 +49,9 @@
       "checksum_md5": "098b185cc59717186b856f3b4db39847",
       "checksum_sha256": "cd7f1234bd3446b7414e2c0a0d08bb555f5722be7bdd897447f8bb2d79569a46",
       "min_dispatcharr_version": "v0.21.0",
-      "latest_url": "zips/dispatchwrapparr/dispatchwrapparr-latest.zip",
       "url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.1.zip",
-      "size": 42
+      "size": 42,
+      "latest_url": "zips/dispatchwrapparr/dispatchwrapparr-latest.zip"
     }
   }
 }
