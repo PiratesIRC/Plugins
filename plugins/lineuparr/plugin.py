@@ -47,12 +47,27 @@ LOGGER.setLevel(logging.DEBUG)
 LOG_PREFIX = "[Lineuparr]"
 
 
+# BOM + zero-width characters that sneak in from rich-text paste (editors,
+# Slack/Discord, web docs). Python's str.strip() treats none of these as
+# whitespace, so they survive `.strip()` and trip json.loads with
+# "Expecting value: line 1 column 1 (char 0)".
+_INVISIBLE_CHARS = "\ufeff\u200b\u200c\u200d\u2060"
+
+
+def _clean_json_text(s):
+    """Strip whitespace and invisible paste artifacts from a JSON blob."""
+    if not s:
+        return ""
+    return s.strip().strip(_INVISIBLE_CHARS).strip()
+
+
 class PluginConfig:
-    PLUGIN_VERSION = "1.26.9520"
+    PLUGIN_VERSION = "1.26.1091027"
 
     DEFAULT_FUZZY_MATCH_THRESHOLD = 80
     DEFAULT_PRIORITIZE_QUALITY = True
     DEFAULT_RATE_LIMITING = "none"
+    DEFAULT_CHANNEL_NUMBERING = "lineup"
 
     RATE_LIMIT_NONE = 0.0
     RATE_LIMIT_LOW = 0.1
@@ -100,6 +115,15 @@ class PluginConfig:
         "Kids & Family": ["Kids", "Faith"],
         "Foreign Language": ["Spanish", "French"],
         "Music & Shopping": ["Music", "Shopping"],
+    }
+
+    REFINED_CATEGORIES = {
+        "News": ["News"],
+        "Sports": ["Sports", "Regional Sports"],
+        "Movies": ["Movies"],
+        "Family": ["Kids", "Faith"],
+        "Foreign": ["Spanish", "French"],
+        "Entertainment": ["Entertainment", "Reality & Lifestyle", "Comedy", "Discovery", "Crime", "Music", "Shopping", "Outdoors", "Food & Travel"],
     }
 
     CHANNEL_QUALITY_TAG_ORDER = ["[4K]", "[UHD]", "[FHD]", "[HD]", "[SD]", "[Unknown]", "[Slow]", ""]
@@ -305,10 +329,11 @@ class Plugin:
                 "default": "normal",
                 "options": [
                     {"value": "none", "label": "None - single group (prefix only, no categories)"},
-                    {"value": "simple", "label": "Simple - merged categories (News & Info, Sports & Outdoors, etc.)"},
+                    {"value": "refined", "label": "Refined - 6 broad categories (News, Sports, Movies, Family, Foreign, Entertainment)"},
+                    {"value": "simple", "label": "Simple - 7 merged categories (News & Info, Sports & Outdoors, etc.)"},
                     {"value": "normal", "label": "Normal - all individual categories"},
                 ],
-                "help_text": "Controls how lineup categories are grouped. Simple merges 16 categories into 7.",
+                "help_text": "Controls how lineup categories are grouped. Refined merges into 6, Simple into 7, Normal keeps all original categories.",
             },
             {
                 "id": "match_sensitivity",
@@ -322,6 +347,26 @@ class Plugin:
                     {"value": "exact", "label": "Exact - near-exact matches only"},
                 ],
                 "help_text": "How closely stream and EPG names must match channel names. Lower = more matches but more errors.",
+            },
+            {
+                "id": "channel_numbering",
+                "label": "Channel Numbering",
+                "type": "select",
+                "default": "lineup",
+                "options": [
+                    {"value": "lineup", "label": "Use Channel Database Numbers"},
+                    {"value": "auto_next", "label": "Auto-Assign Next Available"},
+                    {"value": "auto_highest", "label": "Auto-Assign After Highest"},
+                    {"value": "specific", "label": "Use Specific Number"},
+                ],
+                "help_text": "How to assign channel numbers. Database uses tvg-chno/channel-number from stream metadata with auto-assign fallback. Auto modes find open slots. Specific starts from your chosen number.",
+            },
+            {
+                "id": "starting_channel_number",
+                "label": "Starting Channel Number",
+                "type": "string",
+                "default": "",
+                "help_text": "Starting channel number for 'Use Specific Number' mode. Channels are numbered sequentially from this value.",
             },
             {
                 "id": "prioritize_quality",
@@ -476,23 +521,24 @@ class Plugin:
             result["categories"] = {"All": all_channels}
             return result
 
-        if detail == "simple":
-            # Merge into simplified categories
-            simplified = {}
+        if detail in ("simple", "refined"):
+            # Merge into simplified/refined categories
+            cat_map = PluginConfig.REFINED_CATEGORIES if detail == "refined" else PluginConfig.SIMPLIFIED_CATEGORIES
+            merged_cats = {}
             mapped_originals = set()
-            for simple_name, originals in PluginConfig.SIMPLIFIED_CATEGORIES.items():
+            for group_name, originals in cat_map.items():
                 merged = []
                 for orig in originals:
                     if orig in original_cats:
                         merged.extend(original_cats[orig])
                         mapped_originals.add(orig)
                 if merged:
-                    simplified[simple_name] = merged
+                    merged_cats[group_name] = merged
             # Preserve any categories not in the mapping
             for orig_name, channels in original_cats.items():
                 if orig_name not in mapped_originals and channels:
-                    simplified[orig_name] = channels
-            result["categories"] = simplified
+                    merged_cats[orig_name] = channels
+            result["categories"] = merged_cats
             return result
 
         # Unknown detail value - treat as normal
@@ -507,11 +553,35 @@ class Plugin:
             return match.group(1), match.group(2)
         return None, None
 
+    @staticmethod
+    def _extract_epg_country(tvg_id):
+        """Extract 2-letter country code from a tvg_id like 'CNN.us' or 'CNN.US_source1'.
+        Returns lowercase country code or None."""
+        if not tvg_id:
+            return None
+        m = re.match(r'^.+\.([a-zA-Z]{2})(?:_.*)?$', tvg_id)
+        return m.group(1).lower() if m else None
+
+    @staticmethod
+    def _pick_epg_by_country(entries, country_code):
+        """From a list of EPG entries for the same name, prefer the one matching country_code.
+        Falls back to first entry if no country match found."""
+        if not entries:
+            return None
+        if not country_code:
+            return entries[0]
+        cc = country_code.lower()
+        for e in entries:
+            epg_cc = Plugin._extract_epg_country(e.get('tvg_id', ''))
+            if epg_cc == cc:
+                return e
+        return entries[0]
+
     def _get_group_prefix(self, settings, lineup_data):
         """Get the group prefix (user override or auto from lineup package name).
         'none' = no prefix (category names only). Blank = auto from package.
         Trailing separators preserved so 'US ' gives 'US News', not 'US: News'."""
-        prefix = settings.get("group_prefix", "").lstrip()
+        prefix = (settings.get("group_prefix") or "").lstrip()
         if prefix.strip().lower() == "none":
             return ""
         if prefix.strip():
@@ -541,6 +611,60 @@ class Plugin:
         # Return as-is for other formats (let Django handle/reject it)
         return raw
 
+    @staticmethod
+    def _resolve_numbering_mode(settings):
+        """Resolve the effective numbering mode, with backwards compatibility."""
+        mode = settings.get("channel_numbering", PluginConfig.DEFAULT_CHANNEL_NUMBERING)
+        if settings.get("ignore_channel_numbers") is True:
+            mode = "auto_next"
+        return mode
+
+    def _get_channel_number(self, settings, entry, assigner_state):
+        """Get the channel number for a lineup entry based on the channel_numbering setting.
+
+        assigner_state is a dict with 'next' key tracking the next number to assign.
+        It must be initialized before the first call using _init_assigner_state().
+        """
+        mode = self._resolve_numbering_mode(settings)
+
+        if mode == "lineup":
+            return self._parse_channel_number(entry.get("number"))
+
+        # For auto/specific modes, assign sequentially and skip used numbers
+        used = assigner_state['used']
+        n = assigner_state['next']
+        while n in used:
+            n += 1
+        used.add(n)
+        assigner_state['next'] = n + 1
+        return n
+
+    @classmethod
+    def _init_assigner_state(cls, settings):
+        """Initialize the channel number assigner state based on settings."""
+        mode = cls._resolve_numbering_mode(settings)
+
+        used = set()
+        if mode != "lineup":
+            for n in Channel.objects.values_list("channel_number", flat=True):
+                if n is not None:
+                    try:
+                        used.add(int(n))
+                    except (ValueError, TypeError):
+                        pass
+
+        if mode == "auto_next":
+            start = 1
+        elif mode == "auto_highest":
+            start = (max(used) + 1) if used else 1
+        elif mode == "specific":
+            raw = (settings.get("starting_channel_number") or "").strip()
+            start = int(raw) if raw.isdigit() and int(raw) > 0 else 1
+        else:
+            start = 1
+
+        return {'next': start, 'used': used}
+
     def _make_group_name(self, prefix, category):
         """Build full group name from prefix and category.
         If prefix ends with a separator character, append category directly.
@@ -554,7 +678,7 @@ class Plugin:
 
     def _resolve_m3u_sources(self, settings, logger):
         """Resolve M3U source names to account IDs. Returns (valid_ids, m3u_priority_map, warnings)."""
-        m3u_str = settings.get("m3u_sources", "").strip()
+        m3u_str = (settings.get("m3u_sources") or "").strip()
         if not m3u_str or m3u_str == "_all":
             return None, {}, []
 
@@ -596,7 +720,7 @@ class Plugin:
         """Merge built-in aliases with user custom aliases."""
         alias_map = dict(CHANNEL_ALIASES)
 
-        custom_str = settings.get("custom_aliases", "").strip()
+        custom_str = _clean_json_text(settings.get("custom_aliases") or "")
         if custom_str:
             try:
                 custom = json.loads(custom_str)
@@ -619,10 +743,10 @@ class Plugin:
             logger.warning(f"{LOG_PREFIX} EPG models not available. Skipping EPG matching.")
             return []
 
-        all_epg = list(EPGData.objects.all().values('id', 'name', 'epg_source'))
+        all_epg = list(EPGData.objects.all().values('id', 'name', 'tvg_id', 'epg_source'))
         logger.info(f"{LOG_PREFIX} Fetched {len(all_epg)} EPG data entries")
 
-        epg_sources_str = settings.get("epg_sources", "").strip()
+        epg_sources_str = (settings.get("epg_sources") or "").strip()
         if not epg_sources_str or epg_sources_str == "_all":
             return all_epg
 
@@ -692,7 +816,7 @@ class Plugin:
     def _resolve_channel_profiles(self, settings, logger):
         """Resolve comma-separated profile names to profile objects.
         Returns list of {'id': int, 'name': str} dicts, or empty list if not configured."""
-        profiles_str = settings.get("channel_profiles", "").strip()
+        profiles_str = (settings.get("channel_profiles") or "").strip()
         if not profiles_str or profiles_str == "_none":
             return []
 
@@ -945,8 +1069,26 @@ class Plugin:
                 results.append({"Setting": "Match Sensitivity", "Value": str(sensitivity), "Status": "ERROR: Invalid"})
                 errors += 1
 
+        # Check channel numbering
+        numbering = self._resolve_numbering_mode(settings)
+        labels = {"lineup": "Use Channel Database Numbers", "auto_next": "Auto-Assign Next Available",
+                  "auto_highest": "Auto-Assign After Highest", "specific": "Use Specific Number"}
+        label = labels.get(numbering, numbering)
+        if numbering == "specific":
+            raw = (settings.get("starting_channel_number") or "").strip()
+            if raw and raw.isdigit() and int(raw) > 0:
+                results.append({"Setting": "Channel Numbering", "Value": f"{label} (start: {raw})", "Status": "OK"})
+            else:
+                results.append({"Setting": "Channel Numbering", "Value": label, "Status": "ERROR: Starting channel number must be a positive integer (1 or higher)"})
+                errors += 1
+        elif numbering in labels:
+            results.append({"Setting": "Channel Numbering", "Value": label, "Status": "OK"})
+        else:
+            results.append({"Setting": "Channel Numbering", "Value": str(numbering), "Status": "ERROR: Invalid option"})
+            errors += 1
+
         # Check M3U sources
-        m3u_str = settings.get("m3u_sources", "").strip()
+        m3u_str = (settings.get("m3u_sources") or "").strip()
         if m3u_str and m3u_str != "_all":
             valid_ids, _, warnings = self._resolve_m3u_sources(settings, logger)
             if valid_ids:
@@ -961,7 +1103,7 @@ class Plugin:
             results.append({"Setting": "M3U Sources", "Value": "(all)", "Status": f"OK (using all - {stream_count} streams)"})
 
         # Check custom aliases
-        custom_str = settings.get("custom_aliases", "").strip()
+        custom_str = _clean_json_text(settings.get("custom_aliases") or "")
         if custom_str:
             try:
                 custom = json.loads(custom_str)
@@ -977,7 +1119,7 @@ class Plugin:
             results.append({"Setting": "Custom Aliases", "Value": "(none)", "Status": f"OK (using {len(CHANNEL_ALIASES)} built-in aliases)"})
 
         # Check channel profiles
-        profiles_str = settings.get("channel_profiles", "").strip()
+        profiles_str = (settings.get("channel_profiles") or "").strip()
         if profiles_str:
             resolved = self._resolve_channel_profiles(settings, logger)
             profile_names = [p.strip() for p in profiles_str.split(",") if p.strip()]
@@ -998,7 +1140,7 @@ class Plugin:
                 source_count = EPGSource.objects.count()
                 results.append({"Setting": "EPG Data", "Value": f"{epg_count} entries from {source_count} sources", "Status": "OK"})
 
-                epg_sources_str = settings.get("epg_sources", "").strip()
+                epg_sources_str = (settings.get("epg_sources") or "").strip()
                 if epg_sources_str and epg_sources_str != "_all":
                     filtered = self._get_filtered_epg_data(settings, logger)
                     results.append({"Setting": "EPG Sources Filter", "Value": epg_sources_str, "Status": f"OK ({len(filtered)} entries after filtering)"})
@@ -1090,6 +1232,7 @@ class Plugin:
         """Dry-run: show channels that would be created."""
         lineup = self._load_lineup(settings, logger)
         prefix = self._get_group_prefix(settings, lineup)
+        assigner = self._init_assigner_state(settings)
 
         # Build group name -> ID mapping
         existing_groups = {g['name']: g['id'] for g in ChannelGroup.objects.all().values('id', 'name')}
@@ -1105,7 +1248,7 @@ class Plugin:
 
             for entry in channels:
                 ch_name = entry["name"]
-                ch_number = self._parse_channel_number(entry.get("number"))
+                ch_number = self._get_channel_number(settings, entry, assigner)
                 key = (ch_name, group_id) if group_id else None
 
                 if key and key in existing_channels:
@@ -1165,10 +1308,16 @@ class Plugin:
     def _do_preview_stream_match(self, settings, logger):
         """Background thread for stream match preview."""
         try:
+            numbering_mode = self._resolve_numbering_mode(settings)
+            use_number_boost = (numbering_mode == "lineup")
             lineup = self._load_lineup(settings, logger)
             matcher = self._init_fuzzy_matcher(settings, logger)
             alias_map = self._build_alias_map(settings, logger)
             streams = self._get_all_streams(settings, logger)
+            assigner = self._init_assigner_state(settings)
+            lineup_cc, _ = self._parse_lineup_filename(settings.get("lineup_file", ""))
+            if lineup_cc:
+                logger.info(f"{LOG_PREFIX} Filtering streams to country: {lineup_cc}")
 
             if not streams:
                 logger.error(f"{LOG_PREFIX} No streams found. Check M3U sources.")
@@ -1184,6 +1333,7 @@ class Plugin:
 
             # Pre-normalize stream names for performance
             matcher.precompute_normalizations(unique_stream_names)
+            matcher.country_filter_drops = 0
 
             results = []
             matched_count = 0
@@ -1203,11 +1353,13 @@ class Plugin:
                         return
 
                     ch_name = entry["name"]
-                    ch_number = self._parse_channel_number(entry.get("number"))
+                    ch_number = self._get_channel_number(settings, entry, assigner)
+                    boost_number = self._parse_channel_number(entry.get("number")) if use_number_boost else None
 
                     matches = matcher.match_all_streams(
                         ch_name, unique_stream_names, alias_map,
-                        channel_number=ch_number
+                        channel_number=boost_number,
+                        lineup_country=lineup_cc,
                     )
 
                     if matches:
@@ -1245,6 +1397,12 @@ class Plugin:
                     progress.update()
 
             progress.finish()
+
+            if lineup_cc and matcher.country_filter_drops:
+                logger.info(
+                    f"{LOG_PREFIX} Country filter dropped "
+                    f"{matcher.country_filter_drops} cross-country candidate(s)"
+                )
 
             # Sort: unmatched first, then by score ascending
             results.sort(key=lambda r: (0 if r["Score"] == 0 else 1, r["Score"]))
@@ -1367,6 +1525,7 @@ class Plugin:
         lineup = self._load_lineup(settings, logger)
         prefix = self._get_group_prefix(settings, lineup)
         rate_limiter = SmartRateLimiter(settings.get("rate_limiting", PluginConfig.DEFAULT_RATE_LIMITING))
+        assigner = self._init_assigner_state(settings)
 
         # Ensure groups exist
         existing_groups = {g['name']: g['id'] for g in ChannelGroup.objects.all().values('id', 'name')}
@@ -1396,24 +1555,25 @@ class Plugin:
 
             for entry in channels:
                 ch_name = entry["name"]
-                ch_number = self._parse_channel_number(entry.get("number"))
+                ch_number = self._get_channel_number(settings, entry, assigner)
 
                 try:
                     if dry_run:
                         existing = Channel.objects.filter(name=ch_name, channel_group_id=group_id).values('id', 'channel_number').first()
                         if existing:
                             synced_channel_ids.append(existing['id'])
-                            if ch_number and existing['channel_number'] != ch_number:
+                            if ch_number is not None and existing['channel_number'] != ch_number:
                                 updated += 1
                             else:
                                 unchanged += 1
                         else:
                             created += 1
                     else:
+                        defaults = {"channel_number": ch_number} if ch_number is not None else {}
                         ch, was_created = Channel.objects.get_or_create(
                             name=ch_name,
                             channel_group_id=group_id,
-                            defaults={"channel_number": ch_number}
+                            defaults=defaults
                         )
                         synced_channel_ids.append(ch.id)
                         if was_created:
@@ -1421,7 +1581,7 @@ class Plugin:
                             logger.debug(f"{LOG_PREFIX} Created channel: '{ch_name}' #{ch_number} in '{group_name}'")
                         else:
                             # Update channel number if different
-                            if ch_number and ch.channel_number != ch_number:
+                            if ch_number is not None and ch.channel_number != ch_number:
                                 ch.channel_number = ch_number
                                 ch.save(update_fields=['channel_number'])
                                 updated += 1
@@ -1745,6 +1905,7 @@ class Plugin:
     def _do_apply_stream_match(self, settings, logger):
         """Core stream matching logic (called from thread)."""
         dry_run = settings.get("dry_run_mode", False)
+        use_number_boost = (self._resolve_numbering_mode(settings) == "lineup")
         prioritize_quality = settings.get("prioritize_quality", PluginConfig.DEFAULT_PRIORITIZE_QUALITY)
 
         if not self._acquire_lock(logger):
@@ -1756,6 +1917,9 @@ class Plugin:
             matcher = self._init_fuzzy_matcher(settings, logger)
             alias_map = self._build_alias_map(settings, logger)
             rate_limiter = SmartRateLimiter(settings.get("rate_limiting", PluginConfig.DEFAULT_RATE_LIMITING))
+            lineup_cc, _ = self._parse_lineup_filename(settings.get("lineup_file", ""))
+            if lineup_cc:
+                logger.info(f"{LOG_PREFIX} Filtering streams to country: {lineup_cc}")
 
             # Get streams
             all_streams = self._get_all_streams(settings, logger)
@@ -1773,6 +1937,7 @@ class Plugin:
 
             # Pre-normalize stream names for performance
             matcher.precompute_normalizations(unique_stream_names)
+            matcher.country_filter_drops = 0
 
             # Get existing groups and channels
             existing_groups = {g['name']: g['id'] for g in ChannelGroup.objects.all().values('id', 'name')}
@@ -1805,7 +1970,7 @@ class Plugin:
                         return {"status": "ok", "message": "Stream matching cancelled by user."}
 
                     ch_name = entry["name"]
-                    ch_number = self._parse_channel_number(entry.get("number"))
+                    ch_number = self._parse_channel_number(entry.get("number")) if use_number_boost else None
                     channel_id = existing_channels.get((ch_name, group_id))
 
                     if not channel_id:
@@ -1817,7 +1982,8 @@ class Plugin:
                     # Match streams using deduplicated names
                     matches = matcher.match_all_streams(
                         ch_name, unique_stream_names, alias_map,
-                        channel_number=ch_number
+                        channel_number=ch_number,
+                        lineup_country=lineup_cc,
                     )
 
                     if matches:
@@ -1875,6 +2041,12 @@ class Plugin:
                     progress.update()
 
             progress.finish()
+
+            if lineup_cc and matcher.country_filter_drops:
+                logger.info(
+                    f"{LOG_PREFIX} Country filter dropped "
+                    f"{matcher.country_filter_drops} cross-country candidate(s)"
+                )
 
             # Export CSV
             ts = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -1959,11 +2131,18 @@ class Plugin:
             return {"status": "error", "message": "Another operation is in progress. Try again later."}
 
         try:
+            use_number_boost = (self._resolve_numbering_mode(settings) == "lineup")
             lineup = self._load_lineup(settings, logger)
             prefix = self._get_group_prefix(settings, lineup)
             matcher = self._init_fuzzy_matcher(settings, logger)
             alias_map = self._build_alias_map(settings, logger)
             rate_limiter = SmartRateLimiter(settings.get("rate_limiting", PluginConfig.DEFAULT_RATE_LIMITING))
+
+            # Extract lineup country code for EPG country matching
+            lineup_file = settings.get("lineup_file", "")
+            lineup_cc, _ = self._parse_lineup_filename(os.path.basename(lineup_file))
+            if lineup_cc:
+                logger.info(f"{LOG_PREFIX} Lineup country code: {lineup_cc} (will prefer EPG entries with matching country)")
 
             # Fetch filtered EPG data
             epg_data = self._get_filtered_epg_data(settings, logger)
@@ -2037,7 +2216,7 @@ class Plugin:
                         return {"status": "ok", "message": "EPG matching cancelled by user."}
 
                     ch_name = entry["name"]
-                    ch_number = self._parse_channel_number(entry.get("number"))
+                    ch_number = self._parse_channel_number(entry.get("number")) if use_number_boost else None
                     ch_data = existing_channels.get((ch_name, group_id))
 
                     if not ch_data:
@@ -2070,7 +2249,7 @@ class Plugin:
                         top_name, top_score, top_method = matches[0]
                         top_entries = epg_by_name.get(top_name, [])
                         if top_entries:
-                            best_epg = top_entries[0]
+                            best_epg = self._pick_epg_by_country(top_entries, lineup_cc)
                             best_score = top_score
                             best_method = top_method
 
@@ -2084,7 +2263,7 @@ class Plugin:
                             top_name, top_score, top_method = fallback_matches[0]
                             top_entries = epg_by_name_all.get(top_name, [])
                             if top_entries:
-                                best_epg = top_entries[0]
+                                best_epg = self._pick_epg_by_country(top_entries, lineup_cc)
                                 best_score = top_score
                                 best_method = top_method
                                 has_program_data = False
