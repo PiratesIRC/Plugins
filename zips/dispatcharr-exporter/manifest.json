@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-18T21:51:38Z",
+  "generated_at": "2026-04-19T10:32:25Z",
   "manifest": {
     "name": "Dispatcharr Exporter",
     "description": "Expose Dispatcharr metrics in Prometheus exporter-compatible format for monitoring",
@@ -46,9 +46,9 @@
       "checksum_md5": "9e8664ef74857bbd596c0a1e4c6c5ff8",
       "checksum_sha256": "3c795a2ef349e6ce2a5d049d9a4d973623576e773fcfe85536bd5a9c0000d373",
       "min_dispatcharr_version": "v0.22.0",
-      "latest_url": "zips/dispatcharr-exporter/dispatcharr-exporter-latest.zip",
       "url": "zips/dispatcharr-exporter/dispatcharr-exporter-3.0.0.zip",
-      "size": 139
+      "size": 139,
+      "latest_url": "zips/dispatcharr-exporter/dispatcharr-exporter-latest.zip"
     }
   }
 }

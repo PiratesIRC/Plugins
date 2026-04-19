@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-18T21:51:38Z",
+  "generated_at": "2026-04-19T10:32:25Z",
   "manifest": {
     "name": "Embyfin Stream Cleanup",
     "description": "Monitors Dispatcharr client activity and terminates idle Emby/Jellyfin connections",
@@ -34,9 +34,9 @@
       "checksum_md5": "51def500b6cd5228f45b762df9fb8996",
       "checksum_sha256": "7408e4ceaf1e57c87d5c5b29081b974738ed301b26f26791dff584d22024a0da",
       "min_dispatcharr_version": "v0.22.0",
-      "latest_url": "zips/embyfin-stream-cleanup/embyfin-stream-cleanup-latest.zip",
       "url": "zips/embyfin-stream-cleanup/embyfin-stream-cleanup-1.0.1.zip",
-      "size": 1565
+      "size": 1565,
+      "latest_url": "zips/embyfin-stream-cleanup/embyfin-stream-cleanup-latest.zip"
     }
   }
 }

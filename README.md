@@ -20,7 +20,7 @@ This branch contains all published plugin releases.
 | [`IPTV Checker`](#iptv-checker) | `1.26.1081815` | PiratesIRC | MIT | A Dispatcharr Plugin that goes through a playlist to check IPTV channels |
 | [`Lineuparr`](#lineuparr) | `1.26.9520` | PiratesIRC | MIT | Mirror real-world provider channel lineups by creating channel groups, channels, and fuzzy-matching IPTV streams to them. |
 | [`Stream Dripper`](#stream-dripper) | `1.0.0` | Megamannen | Artistic-2.0 | Automatically drops all active streams once per day at a configured time, with a manual drop-now button. |
-| [`Stream-Mapparr`](#stream-mapparr) | `0.9.0` | PiratesIRC | MIT | Automatically add matching streams to channels based on name similarity and quality precedence. Supports unlimited stream matching, channel visibility management, and CSV export cleanup. |
+| [`Stream-Mapparr`](#stream-mapparr) | `1.26.1082140` | PiratesIRC | MIT | Automatically add matching streams to channels based on name similarity and quality precedence. Supports unlimited stream matching, channel visibility management, and CSV export cleanup. |
 
 ---
 
@@ -186,7 +186,7 @@ Automatically drops all active streams once per day at a configured time, with a
 
 ### [Stream-Mapparr](https://github.com/PiratesIRC/Plugins/blob/releases/zips/stream-mapparr/README.md)
 
-**Version:** `0.9.0` | **Author:** PiratesIRC | **Last Updated:** Apr 05 2026, 21:34 UTC
+**Version:** `1.26.1082140` | **Author:** PiratesIRC | **Last Updated:** Apr 18 2026, 22:09 UTC
 
 Automatically add matching streams to channels based on name similarity and quality precedence. Supports unlimited stream matching, channel visibility management, and CSV export cleanup.
 
@@ -195,10 +195,10 @@ Automatically add matching streams to channels based on name similarity and qual
 ![Dispatcharr min](https://img.shields.io/badge/Dispatcharr_min-v0.20.0-brightgreen?style=flat-square)
 
 **Downloads:**
- [Latest Release (`0.9.0`)](https://github.com/PiratesIRC/Plugins/raw/releases/zips/stream-mapparr/stream-mapparr-latest.zip)
-- [All Versions (1 available)](./zips/stream-mapparr)
+ [Latest Release (`1.26.1082140`)](https://github.com/PiratesIRC/Plugins/raw/releases/zips/stream-mapparr/stream-mapparr-latest.zip)
+- [All Versions (2 available)](./zips/stream-mapparr)
 
-**Source:** [Browse](https://github.com/PiratesIRC/Plugins/tree/main/plugins/stream-mapparr) | **Last Change:** [`f42e889`](https://github.com/PiratesIRC/Plugins/commit/f42e889c2c1192cc5982cb2d98236a4130402d81)
+**Source:** [Browse](https://github.com/PiratesIRC/Plugins/tree/main/plugins/stream-mapparr) | **Last Change:** [`4812211`](https://github.com/PiratesIRC/Plugins/commit/4812211adaa1d7d67b5a2ae8154e857eab5d5b13)
 
 ---
 
@@ -212,4 +212,4 @@ curl https://raw.githubusercontent.com/PiratesIRC/Plugins/releases/manifest.json
 
 ---
 
-*Last updated: Apr 18 2026, 21:51 UTC*
+*Last updated: Apr 19 2026, 10:32 UTC*

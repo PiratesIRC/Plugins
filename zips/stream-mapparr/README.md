@@ -2,7 +2,7 @@
 
 # Stream-Mapparr
 
-**Version:** `0.9.0` | **Author:** PiratesIRC | **Last Updated:** Apr 05 2026, 21:34 UTC
+**Version:** `1.26.1082140` | **Author:** PiratesIRC | **Last Updated:** Apr 18 2026, 22:09 UTC
 
 Automatically add matching streams to channels based on name similarity and quality precedence. Supports unlimited stream matching, channel visibility management, and CSV export cleanup.
 
@@ -15,19 +15,20 @@ Automatically add matching streams to channels based on name similarity and qual
 ### Latest Release
 
 - **Download:** [`stream-mapparr-latest.zip`](https://github.com/PiratesIRC/Plugins/raw/releases/zips/stream-mapparr/stream-mapparr-latest.zip)
-- **Built:** Apr 12 2026, 18:52 UTC
-- **Source Commit:** [`f42e889`](https://github.com/PiratesIRC/Plugins/commit/f42e889c2c1192cc5982cb2d98236a4130402d81)
+- **Built:** Apr 19 2026, 10:32 UTC
+- **Source Commit:** [`4812211`](https://github.com/PiratesIRC/Plugins/commit/4812211adaa1d7d67b5a2ae8154e857eab5d5b13)
 
 **Checksums:**
 ```
-MD5:    98533f0c64f5a24790f75a6a60dd73ca
-SHA256: e023ea0d51954edd23ee79bdc704ca32780b924864078f4a2d66200a5d484142
+MD5:    b4576f05d110e31974ad11454bab3b05
+SHA256: 52bb946a8f47a0b1a51fc64dd407e1ab94e3f0e85f463001f4f200d6f2b9ffe0
 ```
 
 ### All Versions
 
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
+| `1.26.1082140` | [Download](https://github.com/PiratesIRC/Plugins/raw/releases/zips/stream-mapparr/stream-mapparr-1.26.1082140.zip) | Apr 19 2026, 10:32 UTC | [`4812211`](https://github.com/PiratesIRC/Plugins/commit/4812211adaa1d7d67b5a2ae8154e857eab5d5b13) | b4576f05d110e31974ad11454bab3b05 | 52bb946a8f47a0b1a51fc64dd407e1ab94e3f0e85f463001f4f200d6f2b9ffe0 |
 | `0.9.0` | [Download](https://github.com/PiratesIRC/Plugins/raw/releases/zips/stream-mapparr/stream-mapparr-0.9.0.zip) | Apr 12 2026, 18:52 UTC | [`f42e889`](https://github.com/PiratesIRC/Plugins/commit/f42e889c2c1192cc5982cb2d98236a4130402d81) | 98533f0c64f5a24790f75a6a60dd73ca | e023ea0d51954edd23ee79bdc704ca32780b924864078f4a2d66200a5d484142 |
 
 ---
