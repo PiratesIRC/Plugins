@@ -2,7 +2,7 @@
 
 # Lineuparr
 
-**Version:** `1.26.9520` | **Author:** PiratesIRC | **Last Updated:** Apr 05 2026, 21:34 UTC
+**Version:** `1.26.1091027` | **Author:** PiratesIRC | **Last Updated:** Apr 19 2026, 11:01 UTC
 
 Mirror real-world provider channel lineups by creating channel groups, channels, and fuzzy-matching IPTV streams to them.
 
@@ -15,19 +15,20 @@ Mirror real-world provider channel lineups by creating channel groups, channels,
 ### Latest Release
 
 - **Download:** [`lineuparr-latest.zip`](https://github.com/PiratesIRC/Plugins/raw/releases/zips/lineuparr/lineuparr-latest.zip)
-- **Built:** Apr 12 2026, 18:52 UTC
-- **Source Commit:** [`ca8c5da`](https://github.com/PiratesIRC/Plugins/commit/ca8c5da95df980e153999b5436abcfedbe983f6a)
+- **Built:** Apr 26 2026, 13:13 UTC
+- **Source Commit:** [`9f1898e`](https://github.com/PiratesIRC/Plugins/commit/9f1898eec05b56849cbd0500cbb3561aff756bae)
 
 **Checksums:**
 ```
-MD5:    2861e50c59d892f532f31d895a8a60b4
-SHA256: cb840b37b6ed26a9c63c70d05971834938bc37ca55bab025ba95b631f88e9d03
+MD5:    63fac0848af182a51c3023eba554a169
+SHA256: 80b8ce40e4b062f98a4e3bceb334d9bf69fa27adaebf4520138cb01a10f58420
 ```
 
 ### All Versions
 
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
+| `1.26.1091027` | [Download](https://github.com/PiratesIRC/Plugins/raw/releases/zips/lineuparr/lineuparr-1.26.1091027.zip) | Apr 26 2026, 13:13 UTC | [`9f1898e`](https://github.com/PiratesIRC/Plugins/commit/9f1898eec05b56849cbd0500cbb3561aff756bae) | 63fac0848af182a51c3023eba554a169 | 80b8ce40e4b062f98a4e3bceb334d9bf69fa27adaebf4520138cb01a10f58420 |
 | `1.26.9520` | [Download](https://github.com/PiratesIRC/Plugins/raw/releases/zips/lineuparr/lineuparr-1.26.9520.zip) | Apr 12 2026, 18:52 UTC | [`ca8c5da`](https://github.com/PiratesIRC/Plugins/commit/ca8c5da95df980e153999b5436abcfedbe983f6a) | 2861e50c59d892f532f31d895a8a60b4 | cb840b37b6ed26a9c63c70d05971834938bc37ca55bab025ba95b631f88e9d03 |
 
 ---

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-19T10:32:25Z",
+  "generated_at": "2026-04-26T13:13:45Z",
   "manifest": {
     "registry_url": "https://github.com/PiratesIRC/Plugins",
     "registry_name": "PiratesIRC/Plugins",
@@ -117,12 +117,12 @@
         "manifest_url": "zips/lineuparr/manifest.json",
         "author": "PiratesIRC",
         "license": "MIT",
-        "last_updated": "2026-04-05T17:34:34-04:00",
-        "latest_version": "1.26.9520",
-        "latest_md5": "2861e50c59d892f532f31d895a8a60b4",
-        "latest_sha256": "cb840b37b6ed26a9c63c70d05971834938bc37ca55bab025ba95b631f88e9d03",
-        "latest_url": "zips/lineuparr/lineuparr-1.26.9520.zip",
-        "latest_size": 232,
+        "last_updated": "2026-04-19T07:01:41-04:00",
+        "latest_version": "1.26.1091027",
+        "latest_md5": "63fac0848af182a51c3023eba554a169",
+        "latest_sha256": "80b8ce40e4b062f98a4e3bceb334d9bf69fa27adaebf4520138cb01a10f58420",
+        "latest_url": "zips/lineuparr/lineuparr-1.26.1091027.zip",
+        "latest_size": 238,
         "min_dispatcharr_version": "v0.20.0"
       },
       {

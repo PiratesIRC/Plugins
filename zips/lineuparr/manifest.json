@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-18T19:00:34Z",
+  "generated_at": "2026-04-26T13:13:45Z",
   "manifest": {
     "name": "Lineuparr",
     "description": "Mirror real-world provider channel lineups by creating channel groups, channels, and fuzzy-matching IPTV streams to them.",
@@ -10,6 +10,18 @@
     "registry_url": "https://github.com/PiratesIRC/Plugins",
     "registry_name": "PiratesIRC/Plugins",
     "versions": [
+      {
+        "version": "1.26.1091027",
+        "commit_sha": "9f1898eec05b56849cbd0500cbb3561aff756bae",
+        "commit_sha_short": "9f1898e",
+        "build_timestamp": "2026-04-26T13:13:45Z",
+        "last_updated": "2026-04-19T07:01:41-04:00",
+        "checksum_md5": "63fac0848af182a51c3023eba554a169",
+        "checksum_sha256": "80b8ce40e4b062f98a4e3bceb334d9bf69fa27adaebf4520138cb01a10f58420",
+        "min_dispatcharr_version": "v0.20.0",
+        "url": "zips/lineuparr/lineuparr-1.26.1091027.zip",
+        "size": 238
+      },
       {
         "version": "1.26.9520",
         "commit_sha": "ca8c5da95df980e153999b5436abcfedbe983f6a",
@@ -23,19 +35,19 @@
         "size": 232
       }
     ],
-    "last_updated": "2026-04-05T17:34:34-04:00",
+    "last_updated": "2026-04-19T07:01:41-04:00",
     "latest": {
-      "version": "1.26.9520",
-      "commit_sha": "ca8c5da95df980e153999b5436abcfedbe983f6a",
-      "commit_sha_short": "ca8c5da",
-      "build_timestamp": "2026-04-12T18:52:56Z",
-      "last_updated": "2026-04-05T17:34:34-04:00",
-      "checksum_md5": "2861e50c59d892f532f31d895a8a60b4",
-      "checksum_sha256": "cb840b37b6ed26a9c63c70d05971834938bc37ca55bab025ba95b631f88e9d03",
+      "version": "1.26.1091027",
+      "commit_sha": "9f1898eec05b56849cbd0500cbb3561aff756bae",
+      "commit_sha_short": "9f1898e",
+      "build_timestamp": "2026-04-26T13:13:45Z",
+      "last_updated": "2026-04-19T07:01:41-04:00",
+      "checksum_md5": "63fac0848af182a51c3023eba554a169",
+      "checksum_sha256": "80b8ce40e4b062f98a4e3bceb334d9bf69fa27adaebf4520138cb01a10f58420",
       "min_dispatcharr_version": "v0.20.0",
-      "url": "zips/lineuparr/lineuparr-1.26.9520.zip",
-      "size": 232,
-      "latest_url": "zips/lineuparr/lineuparr-latest.zip"
+      "latest_url": "zips/lineuparr/lineuparr-latest.zip",
+      "url": "zips/lineuparr/lineuparr-1.26.1091027.zip",
+      "size": 238
     }
   }
 }

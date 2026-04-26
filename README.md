@@ -18,7 +18,7 @@ This branch contains all published plugin releases.
 | [`EPG Janitor`](#epg-janitor) | `1.26.1021352` | PiratesIRC | MIT | Scans for channels with EPG assignments but no program data. Auto-matches EPG to channels using intelligent fuzzy matching with aliases, removes EPG from hidden channels, and manages EPG assignments. |
 | [`Event Channel Managarr`](#event-channel-managarr) | `1.26.1081615` | PiratesIRC | MIT | Automates channel visibility by hiding channels without events and showing those with events, based on EPG data and channel names. Optionally manages dummy EPG for channels without real EPG. |
 | [`IPTV Checker`](#iptv-checker) | `1.26.1081815` | PiratesIRC | MIT | A Dispatcharr Plugin that goes through a playlist to check IPTV channels |
-| [`Lineuparr`](#lineuparr) | `1.26.9520` | PiratesIRC | MIT | Mirror real-world provider channel lineups by creating channel groups, channels, and fuzzy-matching IPTV streams to them. |
+| [`Lineuparr`](#lineuparr) | `1.26.1091027` | PiratesIRC | MIT | Mirror real-world provider channel lineups by creating channel groups, channels, and fuzzy-matching IPTV streams to them. |
 | [`Stream Dripper`](#stream-dripper) | `1.0.0` | Megamannen | Artistic-2.0 | Automatically drops all active streams once per day at a configured time, with a manual drop-now button. |
 | [`Stream-Mapparr`](#stream-mapparr) | `1.26.1082140` | PiratesIRC | MIT | Automatically add matching streams to channels based on name similarity and quality precedence. Supports unlimited stream matching, channel visibility management, and CSV export cleanup. |
 
@@ -152,7 +152,7 @@ A Dispatcharr Plugin that goes through a playlist to check IPTV channels
 
 ### [Lineuparr](https://github.com/PiratesIRC/Plugins/blob/releases/zips/lineuparr/README.md)
 
-**Version:** `1.26.9520` | **Author:** PiratesIRC | **Last Updated:** Apr 05 2026, 21:34 UTC
+**Version:** `1.26.1091027` | **Author:** PiratesIRC | **Last Updated:** Apr 19 2026, 11:01 UTC
 
 Mirror real-world provider channel lineups by creating channel groups, channels, and fuzzy-matching IPTV streams to them.
 
@@ -161,10 +161,10 @@ Mirror real-world provider channel lineups by creating channel groups, channels,
 ![Dispatcharr min](https://img.shields.io/badge/Dispatcharr_min-v0.20.0-brightgreen?style=flat-square)
 
 **Downloads:**
- [Latest Release (`1.26.9520`)](https://github.com/PiratesIRC/Plugins/raw/releases/zips/lineuparr/lineuparr-latest.zip)
-- [All Versions (1 available)](./zips/lineuparr)
+ [Latest Release (`1.26.1091027`)](https://github.com/PiratesIRC/Plugins/raw/releases/zips/lineuparr/lineuparr-latest.zip)
+- [All Versions (2 available)](./zips/lineuparr)
 
-**Source:** [Browse](https://github.com/PiratesIRC/Plugins/tree/main/plugins/lineuparr) | **Last Change:** [`ca8c5da`](https://github.com/PiratesIRC/Plugins/commit/ca8c5da95df980e153999b5436abcfedbe983f6a)
+**Source:** [Browse](https://github.com/PiratesIRC/Plugins/tree/main/plugins/lineuparr) | **Last Change:** [`9f1898e`](https://github.com/PiratesIRC/Plugins/commit/9f1898eec05b56849cbd0500cbb3561aff756bae)
 
 ---
 
@@ -212,4 +212,4 @@ curl https://raw.githubusercontent.com/PiratesIRC/Plugins/releases/manifest.json
 
 ---
 
-*Last updated: Apr 19 2026, 10:32 UTC*
+*Last updated: Apr 26 2026, 13:13 UTC*
