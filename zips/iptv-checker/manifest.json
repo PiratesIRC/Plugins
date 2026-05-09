@@ -1,15 +1,41 @@
 {
-  "generated_at": "2026-04-27T23:53:24Z",
+  "generated_at": "2026-05-09T15:21:36Z",
   "manifest": {
+    "slug": "iptv-checker",
     "name": "IPTV Checker",
     "description": "A Dispatcharr Plugin that goes through a playlist to check IPTV channels",
     "author": "PiratesIRC",
     "license": "MIT",
     "repo_url": "https://github.com/PiratesIRC/Dispatcharr-IPTV-Checker-Plugin",
-    "slug": "iptv-checker",
     "registry_url": "https://github.com/PiratesIRC/Plugins",
     "registry_name": "PiratesIRC/Plugins",
+    "last_updated": "2026-05-02T12:57:34-05:00",
+    "latest": {
+      "version": "1.26.1221101",
+      "commit_sha": "aa662b3a97476953ed876651024d62f054973cb7",
+      "commit_sha_short": "aa662b3",
+      "build_timestamp": "2026-05-09T15:21:36Z",
+      "last_updated": "2026-05-02T12:57:34-05:00",
+      "checksum_md5": "f614ec5fcc442bc892b95183c58e83d1",
+      "checksum_sha256": "7f3f541c42842411945c0d523d80b090a30f2aef5c4e9b33e75f749c2582fba0",
+      "min_dispatcharr_version": "v0.20.0",
+      "latest_url": "zips/iptv-checker/iptv-checker-latest.zip",
+      "url": "zips/iptv-checker/iptv-checker-1.26.1221101.zip",
+      "size": 354
+    },
     "versions": [
+      {
+        "version": "1.26.1221101",
+        "commit_sha": "aa662b3a97476953ed876651024d62f054973cb7",
+        "commit_sha_short": "aa662b3",
+        "build_timestamp": "2026-05-09T15:21:36Z",
+        "last_updated": "2026-05-02T12:57:34-05:00",
+        "checksum_md5": "f614ec5fcc442bc892b95183c58e83d1",
+        "checksum_sha256": "7f3f541c42842411945c0d523d80b090a30f2aef5c4e9b33e75f749c2582fba0",
+        "min_dispatcharr_version": "v0.20.0",
+        "url": "zips/iptv-checker/iptv-checker-1.26.1221101.zip",
+        "size": 354
+      },
       {
         "version": "1.26.1161403",
         "commit_sha": "740b4eefc51ff4296f36be336e06979bc1eb9970",
@@ -46,20 +72,6 @@
         "url": "zips/iptv-checker/iptv-checker-0.8.0.zip",
         "size": 38
       }
-    ],
-    "last_updated": "2026-04-26T09:39:45-05:00",
-    "latest": {
-      "version": "1.26.1161403",
-      "commit_sha": "740b4eefc51ff4296f36be336e06979bc1eb9970",
-      "commit_sha_short": "740b4ee",
-      "build_timestamp": "2026-04-27T23:53:24Z",
-      "last_updated": "2026-04-26T09:39:45-05:00",
-      "checksum_md5": "b33f7f4eb01dc987fd9a7f61aa90d090",
-      "checksum_sha256": "02f840bd262e15128c47a05f905c6f4061ca1e9c71b741995f128b45da72c809",
-      "min_dispatcharr_version": "v0.20.0",
-      "latest_url": "zips/iptv-checker/iptv-checker-latest.zip",
-      "url": "zips/iptv-checker/iptv-checker-1.26.1161403.zip",
-      "size": 344
-    }
+    ]
   }
 }

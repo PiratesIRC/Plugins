@@ -1,6 +1,7 @@
 {
-  "generated_at": "2026-04-18T19:00:34Z",
+  "generated_at": "2026-05-09T15:21:36Z",
   "manifest": {
+    "slug": "dispatchwrapparr",
     "name": "Dispatchwrapparr",
     "description": "An intelligent DRM/Clearkey capable stream profile for Dispatcharr",
     "author": "jordandalley",
@@ -10,10 +11,35 @@
     "license": "MIT",
     "repo_url": "https://github.com/jordandalley/dispatchwrapparr",
     "discord_thread": "https://discord.com/channels/1340492560220684331/1422776847703212132",
-    "slug": "dispatchwrapparr",
     "registry_url": "https://github.com/PiratesIRC/Plugins",
     "registry_name": "PiratesIRC/Plugins",
+    "last_updated": "2026-04-27T21:30:01-04:00",
+    "latest": {
+      "version": "1.6.2",
+      "commit_sha": "44fbc6b96eebd52ea29b27fc371af3c20f997702",
+      "commit_sha_short": "44fbc6b",
+      "build_timestamp": "2026-05-09T15:21:35Z",
+      "last_updated": "2026-04-27T21:30:01-04:00",
+      "checksum_md5": "49b9ac5caa08eec07d19e130cddff8bc",
+      "checksum_sha256": "ab33656c2c475db77af3d1eaf350d7334d4f4740af4cf4e7fc3b15e675fa8bbf",
+      "min_dispatcharr_version": "v0.21.0",
+      "latest_url": "zips/dispatchwrapparr/dispatchwrapparr-latest.zip",
+      "url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.2.zip",
+      "size": 42
+    },
     "versions": [
+      {
+        "version": "1.6.2",
+        "commit_sha": "44fbc6b96eebd52ea29b27fc371af3c20f997702",
+        "commit_sha_short": "44fbc6b",
+        "build_timestamp": "2026-05-09T15:21:35Z",
+        "last_updated": "2026-04-27T21:30:01-04:00",
+        "checksum_md5": "49b9ac5caa08eec07d19e130cddff8bc",
+        "checksum_sha256": "ab33656c2c475db77af3d1eaf350d7334d4f4740af4cf4e7fc3b15e675fa8bbf",
+        "min_dispatcharr_version": "v0.21.0",
+        "url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.2.zip",
+        "size": 42
+      },
       {
         "version": "1.6.1",
         "commit_sha": "7ac9bb7cacde52e3a3ba7a9a5925789c97c5f65b",
@@ -38,20 +64,6 @@
         "url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.0.zip",
         "size": 42
       }
-    ],
-    "last_updated": "2026-04-16T07:17:42-04:00",
-    "latest": {
-      "version": "1.6.1",
-      "commit_sha": "7ac9bb7cacde52e3a3ba7a9a5925789c97c5f65b",
-      "commit_sha_short": "7ac9bb7",
-      "build_timestamp": "2026-04-18T16:28:15Z",
-      "last_updated": "2026-04-16T07:17:42-04:00",
-      "checksum_md5": "098b185cc59717186b856f3b4db39847",
-      "checksum_sha256": "cd7f1234bd3446b7414e2c0a0d08bb555f5722be7bdd897447f8bb2d79569a46",
-      "min_dispatcharr_version": "v0.21.0",
-      "url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.1.zip",
-      "size": 42,
-      "latest_url": "zips/dispatchwrapparr/dispatchwrapparr-latest.zip"
-    }
+    ]
   }
 }

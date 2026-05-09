@@ -1,14 +1,28 @@
 {
-  "generated_at": "2026-04-26T13:13:45Z",
+  "generated_at": "2026-05-09T15:21:36Z",
   "manifest": {
+    "slug": "stream-mapparr",
     "name": "Stream-Mapparr",
     "description": "Automatically add matching streams to channels based on name similarity and quality precedence. Supports unlimited stream matching, channel visibility management, and CSV export cleanup.",
     "author": "PiratesIRC",
     "license": "MIT",
     "repo_url": "https://github.com/PiratesIRC/Stream-Mapparr",
-    "slug": "stream-mapparr",
     "registry_url": "https://github.com/PiratesIRC/Plugins",
     "registry_name": "PiratesIRC/Plugins",
+    "last_updated": "2026-04-18T18:09:01-04:00",
+    "latest": {
+      "version": "1.26.1082140",
+      "commit_sha": "4812211adaa1d7d67b5a2ae8154e857eab5d5b13",
+      "commit_sha_short": "4812211",
+      "build_timestamp": "2026-04-19T10:32:25Z",
+      "last_updated": "2026-04-18T18:09:01-04:00",
+      "checksum_md5": "b4576f05d110e31974ad11454bab3b05",
+      "checksum_sha256": "52bb946a8f47a0b1a51fc64dd407e1ab94e3f0e85f463001f4f200d6f2b9ffe0",
+      "min_dispatcharr_version": "v0.20.0",
+      "latest_url": "zips/stream-mapparr/stream-mapparr-latest.zip",
+      "url": "zips/stream-mapparr/stream-mapparr-1.26.1082140.zip",
+      "size": 391
+    },
     "versions": [
       {
         "version": "1.26.1082140",
@@ -34,20 +48,6 @@
         "url": "zips/stream-mapparr/stream-mapparr-0.9.0.zip",
         "size": 319
       }
-    ],
-    "last_updated": "2026-04-18T18:09:01-04:00",
-    "latest": {
-      "version": "1.26.1082140",
-      "commit_sha": "4812211adaa1d7d67b5a2ae8154e857eab5d5b13",
-      "commit_sha_short": "4812211",
-      "build_timestamp": "2026-04-19T10:32:25Z",
-      "last_updated": "2026-04-18T18:09:01-04:00",
-      "checksum_md5": "b4576f05d110e31974ad11454bab3b05",
-      "checksum_sha256": "52bb946a8f47a0b1a51fc64dd407e1ab94e3f0e85f463001f4f200d6f2b9ffe0",
-      "min_dispatcharr_version": "v0.20.0",
-      "url": "zips/stream-mapparr/stream-mapparr-1.26.1082140.zip",
-      "size": 391,
-      "latest_url": "zips/stream-mapparr/stream-mapparr-latest.zip"
-    }
+    ]
   }
 }

@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-05-09T15:21:36Z",
+  "manifest": {
+    "slug": "youtubearr",
+    "name": "YouTubearr",
+    "description": "Zero-dependency YouTube livestream plugin with automatic monitoring and configurable numbering",
+    "author": "jeff-gooch",
+    "license": "Unlicense",
+    "repo_url": "https://github.com/jeff-gooch/youtubearr",
+    "registry_url": "https://github.com/PiratesIRC/Plugins",
+    "registry_name": "PiratesIRC/Plugins",
+    "last_updated": "2026-05-02T18:55:36-04:00",
+    "latest": {
+      "version": "1.17.7",
+      "commit_sha": "de0e8ba2d627eb6227392a7dc590571ef869ca85",
+      "commit_sha_short": "de0e8ba",
+      "build_timestamp": "2026-05-09T15:21:36Z",
+      "last_updated": "2026-05-02T18:55:36-04:00",
+      "checksum_md5": "27d85c18c88a90ea39904a7b6d6d3f4b",
+      "checksum_sha256": "b3dae17c30d069c0ca9c4943bc1b014abae7198d7906cb1f5dce66d0615038e6",
+      "min_dispatcharr_version": "v0.20.0",
+      "latest_url": "zips/youtubearr/youtubearr-latest.zip",
+      "url": "zips/youtubearr/youtubearr-1.17.7.zip",
+      "size": 5001
+    },
+    "versions": [
+      {
+        "version": "1.17.7",
+        "commit_sha": "de0e8ba2d627eb6227392a7dc590571ef869ca85",
+        "commit_sha_short": "de0e8ba",
+        "build_timestamp": "2026-05-09T15:21:36Z",
+        "last_updated": "2026-05-02T18:55:36-04:00",
+        "checksum_md5": "27d85c18c88a90ea39904a7b6d6d3f4b",
+        "checksum_sha256": "b3dae17c30d069c0ca9c4943bc1b014abae7198d7906cb1f5dce66d0615038e6",
+        "min_dispatcharr_version": "v0.20.0",
+        "url": "zips/youtubearr/youtubearr-1.17.7.zip",
+        "size": 5001
+      }
+    ]
+  }
+}
