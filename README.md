@@ -12,16 +12,18 @@ This branch contains all published plugin releases.
 | Plugin | Version | Author | License | Description |
 |--------|---------|-------|---------|-------------|
 | [`Channel Mapparr`](#channel-mapparr) | `1.26.1001200` | PiratesIRC | MIT | Standardizes broadcast (OTA) and premium/cable channel names using network data and channel lists. Supports M3U stream import, category organization, and fuzzy matching across 42K+ channels in 11 countries. |
-| [`Dispatcharr Exporter`](#dispatcharr-exporter) | `3.0.0` | sethwv | MIT | Expose Dispatcharr metrics in Prometheus exporter-compatible format for monitoring |
+| [`Dispatcharr Exporter`](#dispatcharr-exporter) | `3.0.1` | sethwv | MIT | Expose Dispatcharr metrics in Prometheus exporter-compatible format for monitoring |
 | [`Dispatchwrapparr`](#dispatchwrapparr) | `1.6.2` | jordandalley | MIT | An intelligent DRM/Clearkey capable stream profile for Dispatcharr |
-| [`Embyfin Stream Cleanup`](#embyfin-stream-cleanup) | `1.1.1` | sethwv | MIT | Monitors Dispatcharr client activity and terminates idle Emby/Jellyfin connections |
+| [`Embyfin Stream Cleanup`](#embyfin-stream-cleanup) | `1.2.0` | sethwv | MIT | Monitors Dispatcharr client activity and terminates idle Emby/Jellyfin connections |
 | [`EPG Janitor`](#epg-janitor) | `1.26.1021352` | PiratesIRC | MIT | Scans for channels with EPG assignments but no program data. Auto-matches EPG to channels using intelligent fuzzy matching with aliases, removes EPG from hidden channels, and manages EPG assignments. |
-| [`Event Channel Managarr`](#event-channel-managarr) | `1.26.1172336` | PiratesIRC | MIT | Automates channel visibility by hiding channels without events and showing those with events, based on EPG data and channel names. Optionally manages dummy EPG for channels without real EPG. |
+| [`EPGeditARR`](#epgeditarr) | `0.1.7` | jstevenscl | MIT | Transform and clean your EPG data using regex and find/replace rules. Creates virtual copies of your sources — originals are never touched. Fills placeholder schedules for channels with no EPG, and sorts SiriusXM channels into official lineup order with automatic seasonal channel handling. |
+| [`Event Channel Managarr`](#event-channel-managarr) | `1.26.1291442` | PiratesIRC | MIT | Automates channel visibility by hiding channels without events and showing those with events, based on EPG data and channel names. Optionally manages dummy EPG for channels without real EPG. |
 | [`IPTV Checker`](#iptv-checker) | `1.26.1221101` | PiratesIRC | MIT | A Dispatcharr Plugin that goes through a playlist to check IPTV channels |
 | [`Lineuparr`](#lineuparr) | `1.26.1091027` | PiratesIRC | MIT | Mirror real-world provider channel lineups by creating channel groups, channels, and fuzzy-matching IPTV streams to them. |
 | [`Stream Dripper`](#stream-dripper) | `1.0.0` | Megamannen | Artistic-2.0 | Automatically drops all active streams once per day at a configured time, with a manual drop-now button. |
 | [`Stream-Mapparr`](#stream-mapparr) | `1.26.1082140` | PiratesIRC | MIT | Automatically add matching streams to channels based on name similarity and quality precedence. Supports unlimited stream matching, channel visibility management, and CSV export cleanup. |
-| [`YouTubearr`](#youtubearr) | `1.17.7` | jeff-gooch | Unlicense | Zero-dependency YouTube livestream plugin with automatic monitoring and configurable numbering |
+| [`Waybill`](#waybill) | `1.3.0` | Matthew-Beckett | MIT | Waybill matches, renames, and organizes any streams no matter the provider. Infinitely configurable pipelines for total control. |
+| [`YouTubearr`](#youtubearr) | `1.18.0` | jeff-gooch | Unlicense | Zero-dependency YouTube livestream plugin with automatic monitoring and configurable numbering |
 
 ---
 
@@ -45,19 +47,19 @@ Standardizes broadcast (OTA) and premium/cable channel names using network data 
 
 ### [Dispatcharr Exporter](https://github.com/PiratesIRC/Plugins/blob/releases/zips/dispatcharr-exporter/README.md)
 
-**Version:** `3.0.0` | **Author:** sethwv | **Last Updated:** Apr 18 2026, 19:12 UTC
+**Version:** `3.0.1` | **Author:** sethwv | **Last Updated:** May 10 2026, 18:26 UTC
 
 Expose Dispatcharr metrics in Prometheus exporter-compatible format for monitoring
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://spdx.org/licenses/MIT.html) [![Discord](https://img.shields.io/badge/Discord-Discussion-5865F2?style=flat-square&logo=discord&logoColor=white)](https://discord.com/channels/1340492560220684331/1451260201775923421) [![Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/sethwv/dispatcharr-exporter)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://spdx.org/licenses/MIT.html) [![Discord](https://img.shields.io/badge/Discord-Discussion-5865F2?style=flat-square&logo=discord&logoColor=white)](https://discord.com/channels/1340492560220684331/1451260201775923421) [![Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/swvn-dispatch/dispatcharr-exporter)
 
 ![Dispatcharr min](https://img.shields.io/badge/Dispatcharr_min-v0.22.0-brightgreen?style=flat-square)
 
 **Downloads:**
- [Latest Release (`3.0.0`)](https://github.com/PiratesIRC/Plugins/raw/releases/zips/dispatcharr-exporter/dispatcharr-exporter-latest.zip)
-- [All Versions (2 available)](./zips/dispatcharr-exporter)
+ [Latest Release (`3.0.1`)](https://github.com/PiratesIRC/Plugins/raw/releases/zips/dispatcharr-exporter/dispatcharr-exporter-latest.zip)
+- [All Versions (3 available)](./zips/dispatcharr-exporter)
 
-**Source:** [Browse](https://github.com/PiratesIRC/Plugins/tree/main/plugins/dispatcharr-exporter) | **Last Change:** [`d7eefa5`](https://github.com/PiratesIRC/Plugins/commit/d7eefa54630e8de25a980c5a894c35aa9c8e8c15)
+**Source:** [Browse](https://github.com/PiratesIRC/Plugins/tree/main/plugins/dispatcharr-exporter) | **Last Change:** [`b70abd6`](https://github.com/PiratesIRC/Plugins/commit/b70abd6df9cd520bcc28ad7fced085be135897a9)
 
 ---
 
@@ -81,19 +83,19 @@ An intelligent DRM/Clearkey capable stream profile for Dispatcharr
 
 ### [Embyfin Stream Cleanup](https://github.com/PiratesIRC/Plugins/blob/releases/zips/embyfin-stream-cleanup/README.md)
 
-**Version:** `1.1.1` | **Author:** sethwv | **Last Updated:** Apr 28 2026, 18:33 UTC
+**Version:** `1.2.0` | **Author:** sethwv | **Last Updated:** May 15 2026, 17:13 UTC
 
 Monitors Dispatcharr client activity and terminates idle Emby/Jellyfin connections
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://spdx.org/licenses/MIT.html) [![Discord](https://img.shields.io/badge/Discord-Discussion-5865F2?style=flat-square&logo=discord&logoColor=white)](https://discord.com/channels/1340492560220684331/1491487318832447668) [![Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/swvn-dispatch/emby-stream-cleanup)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://spdx.org/licenses/MIT.html) [![Discord](https://img.shields.io/badge/Discord-Discussion-5865F2?style=flat-square&logo=discord&logoColor=white)](https://discord.com/channels/1340492560220684331/1491487318832447668) [![Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/swvn-dispatch/embyfin-stream-cleanup)
 
 ![Dispatcharr min](https://img.shields.io/badge/Dispatcharr_min-v0.22.0-brightgreen?style=flat-square)
 
 **Downloads:**
- [Latest Release (`1.1.1`)](https://github.com/PiratesIRC/Plugins/raw/releases/zips/embyfin-stream-cleanup/embyfin-stream-cleanup-latest.zip)
-- [All Versions (3 available)](./zips/embyfin-stream-cleanup)
+ [Latest Release (`1.2.0`)](https://github.com/PiratesIRC/Plugins/raw/releases/zips/embyfin-stream-cleanup/embyfin-stream-cleanup-latest.zip)
+- [All Versions (4 available)](./zips/embyfin-stream-cleanup)
 
-**Source:** [Browse](https://github.com/PiratesIRC/Plugins/tree/main/plugins/embyfin-stream-cleanup) | **Last Change:** [`9416199`](https://github.com/PiratesIRC/Plugins/commit/94161991dd24c6bc86be99d9044b8cf5e6622952)
+**Source:** [Browse](https://github.com/PiratesIRC/Plugins/tree/main/plugins/embyfin-stream-cleanup) | **Last Change:** [`315a967`](https://github.com/PiratesIRC/Plugins/commit/315a967448ff4db469a66491ebc404bfb8e0bb42)
 
 ---
 
@@ -115,9 +117,25 @@ Scans for channels with EPG assignments but no program data. Auto-matches EPG to
 
 ---
 
+### [EPGeditARR](https://github.com/PiratesIRC/Plugins/blob/releases/zips/epgeditarr/README.md)
+
+**Version:** `0.1.7` | **Author:** jstevenscl | **Last Updated:** May 16 2026, 11:31 UTC
+
+Transform and clean your EPG data using regex and find/replace rules. Creates virtual copies of your sources — originals are never touched. Fills placeholder schedules for channels with no EPG, and sorts SiriusXM channels into official lineup order with automatic seasonal channel handling.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://spdx.org/licenses/MIT.html) [![Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/jstevenscl/epgeditarr)
+
+**Downloads:**
+ [Latest Release (`0.1.7`)](https://github.com/PiratesIRC/Plugins/raw/releases/zips/epgeditarr/epgeditarr-latest.zip)
+- [All Versions (1 available)](./zips/epgeditarr)
+
+**Source:** [Browse](https://github.com/PiratesIRC/Plugins/tree/main/plugins/epgeditarr) | **Last Change:** [`9871b68`](https://github.com/PiratesIRC/Plugins/commit/9871b6828d583faa86744e801c99b79def83b4a0)
+
+---
+
 ### [Event Channel Managarr](https://github.com/PiratesIRC/Plugins/blob/releases/zips/event-channel-managarr/README.md)
 
-**Version:** `1.26.1172336` | **Author:** PiratesIRC | **Last Updated:** Apr 28 2026, 00:06 UTC
+**Version:** `1.26.1291442` | **Author:** PiratesIRC | **Last Updated:** May 09 2026, 17:03 UTC
 
 Automates channel visibility by hiding channels without events and showing those with events, based on EPG data and channel names. Optionally manages dummy EPG for channels without real EPG.
 
@@ -126,10 +144,10 @@ Automates channel visibility by hiding channels without events and showing those
 ![Dispatcharr min](https://img.shields.io/badge/Dispatcharr_min-v0.20.0-brightgreen?style=flat-square)
 
 **Downloads:**
- [Latest Release (`1.26.1172336`)](https://github.com/PiratesIRC/Plugins/raw/releases/zips/event-channel-managarr/event-channel-managarr-latest.zip)
-- [All Versions (4 available)](./zips/event-channel-managarr)
+ [Latest Release (`1.26.1291442`)](https://github.com/PiratesIRC/Plugins/raw/releases/zips/event-channel-managarr/event-channel-managarr-latest.zip)
+- [All Versions (5 available)](./zips/event-channel-managarr)
 
-**Source:** [Browse](https://github.com/PiratesIRC/Plugins/tree/main/plugins/event-channel-managarr) | **Last Change:** [`e90ade1`](https://github.com/PiratesIRC/Plugins/commit/e90ade162aba17a2324846a335a846312edace5a)
+**Source:** [Browse](https://github.com/PiratesIRC/Plugins/tree/main/plugins/event-channel-managarr) | **Last Change:** [`ff391f3`](https://github.com/PiratesIRC/Plugins/commit/ff391f33bcb804bf26f73f399a30819d8f3509b5)
 
 ---
 
@@ -203,9 +221,27 @@ Automatically add matching streams to channels based on name similarity and qual
 
 ---
 
+### [Waybill](https://github.com/PiratesIRC/Plugins/blob/releases/zips/waybill/README.md)
+
+**Version:** `1.3.0` | **Author:** Matthew-Beckett | **Last Updated:** May 12 2026, 19:36 UTC
+
+Waybill matches, renames, and organizes any streams no matter the provider. Infinitely configurable pipelines for total control.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://spdx.org/licenses/MIT.html) [![Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/Matthew-Beckett/waybill)
+
+![Dispatcharr min](https://img.shields.io/badge/Dispatcharr_min-0.23.0-brightgreen?style=flat-square) ![Dispatcharr max](https://img.shields.io/badge/Dispatcharr_max-0.24.0-orange?style=flat-square)
+
+**Downloads:**
+ [Latest Release (`1.3.0`)](https://github.com/PiratesIRC/Plugins/raw/releases/zips/waybill/waybill-latest.zip)
+- [All Versions (1 available)](./zips/waybill)
+
+**Source:** [Browse](https://github.com/PiratesIRC/Plugins/tree/main/plugins/waybill) | **Last Change:** [`cdd18dd`](https://github.com/PiratesIRC/Plugins/commit/cdd18dd7f396035b9cd486d3e45375eed3bcc744)
+
+---
+
 ### [YouTubearr](https://github.com/PiratesIRC/Plugins/blob/releases/zips/youtubearr/README.md)
 
-**Version:** `1.17.7` | **Author:** jeff-gooch | **Last Updated:** May 02 2026, 22:55 UTC
+**Version:** `1.18.0` | **Author:** jeff-gooch | **Last Updated:** May 16 2026, 17:32 UTC
 
 Zero-dependency YouTube livestream plugin with automatic monitoring and configurable numbering
 
@@ -214,10 +250,10 @@ Zero-dependency YouTube livestream plugin with automatic monitoring and configur
 ![Dispatcharr min](https://img.shields.io/badge/Dispatcharr_min-v0.20.0-brightgreen?style=flat-square)
 
 **Downloads:**
- [Latest Release (`1.17.7`)](https://github.com/PiratesIRC/Plugins/raw/releases/zips/youtubearr/youtubearr-latest.zip)
-- [All Versions (1 available)](./zips/youtubearr)
+ [Latest Release (`1.18.0`)](https://github.com/PiratesIRC/Plugins/raw/releases/zips/youtubearr/youtubearr-latest.zip)
+- [All Versions (2 available)](./zips/youtubearr)
 
-**Source:** [Browse](https://github.com/PiratesIRC/Plugins/tree/main/plugins/youtubearr) | [README](https://github.com/PiratesIRC/Plugins/blob/main/plugins/youtubearr/README.md) | **Last Change:** [`de0e8ba`](https://github.com/PiratesIRC/Plugins/commit/de0e8ba2d627eb6227392a7dc590571ef869ca85)
+**Source:** [Browse](https://github.com/PiratesIRC/Plugins/tree/main/plugins/youtubearr) | [README](https://github.com/PiratesIRC/Plugins/blob/main/plugins/youtubearr/README.md) | **Last Change:** [`debb66d`](https://github.com/PiratesIRC/Plugins/commit/debb66d9d3205e01fd4b2d808931e5f5564793a5)
 
 ---
 
@@ -231,4 +267,4 @@ curl https://raw.githubusercontent.com/PiratesIRC/Plugins/releases/manifest.json
 
 ---
 
-*Last updated: May 09 2026, 15:21 UTC*
+*Last updated: May 16 2026, 20:05 UTC*

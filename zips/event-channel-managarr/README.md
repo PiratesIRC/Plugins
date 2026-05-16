@@ -2,7 +2,7 @@
 
 # Event Channel Managarr
 
-**Version:** `1.26.1172336` | **Author:** PiratesIRC | **Last Updated:** Apr 28 2026, 00:06 UTC
+**Version:** `1.26.1291442` | **Author:** PiratesIRC | **Last Updated:** May 09 2026, 17:03 UTC
 
 Automates channel visibility by hiding channels without events and showing those with events, based on EPG data and channel names. Optionally manages dummy EPG for channels without real EPG.
 
@@ -15,19 +15,20 @@ Automates channel visibility by hiding channels without events and showing those
 ### Latest Release
 
 - **Download:** [`event-channel-managarr-latest.zip`](https://github.com/PiratesIRC/Plugins/raw/releases/zips/event-channel-managarr/event-channel-managarr-latest.zip)
-- **Built:** May 09 2026, 15:21 UTC
-- **Source Commit:** [`e90ade1`](https://github.com/PiratesIRC/Plugins/commit/e90ade162aba17a2324846a335a846312edace5a)
+- **Built:** May 16 2026, 20:05 UTC
+- **Source Commit:** [`ff391f3`](https://github.com/PiratesIRC/Plugins/commit/ff391f33bcb804bf26f73f399a30819d8f3509b5)
 
 **Checksums:**
 ```
-MD5:    fea39d2d89dcaaf41db94031a2e74179
-SHA256: 85be1c009a08596d569b2644fce5b3dddf613f2fe54265218fc5ef1a26806bc9
+MD5:    21910eb83a254c50207e53b9322e04e0
+SHA256: 716bb00577c9640df18a0f87b67e17b1a2aa379ff574f1bc7e65cd5c6faa6870
 ```
 
 ### All Versions
 
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
+| `1.26.1291442` | [Download](https://github.com/PiratesIRC/Plugins/raw/releases/zips/event-channel-managarr/event-channel-managarr-1.26.1291442.zip) | May 16 2026, 20:05 UTC | [`ff391f3`](https://github.com/PiratesIRC/Plugins/commit/ff391f33bcb804bf26f73f399a30819d8f3509b5) | 21910eb83a254c50207e53b9322e04e0 | 716bb00577c9640df18a0f87b67e17b1a2aa379ff574f1bc7e65cd5c6faa6870 |
 | `1.26.1172336` | [Download](https://github.com/PiratesIRC/Plugins/raw/releases/zips/event-channel-managarr/event-channel-managarr-1.26.1172336.zip) | May 09 2026, 15:21 UTC | [`e90ade1`](https://github.com/PiratesIRC/Plugins/commit/e90ade162aba17a2324846a335a846312edace5a) | fea39d2d89dcaaf41db94031a2e74179 | 85be1c009a08596d569b2644fce5b3dddf613f2fe54265218fc5ef1a26806bc9 |
 | `1.26.1152350` | [Download](https://github.com/PiratesIRC/Plugins/raw/releases/zips/event-channel-managarr/event-channel-managarr-1.26.1152350.zip) | Apr 27 2026, 23:53 UTC | [`18c0e37`](https://github.com/PiratesIRC/Plugins/commit/18c0e378cd16e8d752f6acb68c132092614bd697) | a89ea9de63f89cf631811d133b75dd0f | 8ec6c06bffa4d43cde487941fb4c25b5c36ab76cd9b92d040ae6c9aa184829b3 |
 | `1.26.1081615` | [Download](https://github.com/PiratesIRC/Plugins/raw/releases/zips/event-channel-managarr/event-channel-managarr-1.26.1081615.zip) | Apr 18 2026, 19:00 UTC | [`4948b9c`](https://github.com/PiratesIRC/Plugins/commit/4948b9c0fed99de2e55b11af1883b366e89dd6c3) | fcc690214dc89059375a4c739c365379 | 3274bcd5fc0f06db8cac6931f38067c50ec8d5e2a050d0494fb1166df5ebf50b |
