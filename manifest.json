@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-16T20:05:37Z",
+  "generated_at": "2026-05-17T01:20:10Z",
   "manifest": {
     "registry_url": "https://github.com/PiratesIRC/Plugins",
     "registry_name": "PiratesIRC/Plugins",
@@ -101,11 +101,11 @@
         "manifest_url": "zips/event-channel-managarr/manifest.json",
         "author": "PiratesIRC",
         "license": "MIT",
-        "last_updated": "2026-05-09T13:03:33-04:00",
-        "latest_version": "1.26.1291442",
-        "latest_md5": "21910eb83a254c50207e53b9322e04e0",
-        "latest_sha256": "716bb00577c9640df18a0f87b67e17b1a2aa379ff574f1bc7e65cd5c6faa6870",
-        "latest_url": "zips/event-channel-managarr/event-channel-managarr-1.26.1291442.zip",
+        "last_updated": "2026-05-16T16:45:07-04:00",
+        "latest_version": "1.26.1362004",
+        "latest_md5": "ed8ae38b6d09beb21d621dab327993d9",
+        "latest_sha256": "2e70e1c46ec5c2f676f936c431e86ffb514f6a9e8500c8d8f5d5b11acb576b25",
+        "latest_url": "zips/event-channel-managarr/event-channel-managarr-1.26.1362004.zip",
         "latest_size": 184,
         "min_dispatcharr_version": "v0.20.0"
       },
@@ -116,12 +116,12 @@
         "manifest_url": "zips/iptv-checker/manifest.json",
         "author": "PiratesIRC",
         "license": "MIT",
-        "last_updated": "2026-05-02T12:57:34-05:00",
-        "latest_version": "1.26.1221101",
-        "latest_md5": "f614ec5fcc442bc892b95183c58e83d1",
-        "latest_sha256": "7f3f541c42842411945c0d523d80b090a30f2aef5c4e9b33e75f749c2582fba0",
-        "latest_url": "zips/iptv-checker/iptv-checker-1.26.1221101.zip",
-        "latest_size": 354,
+        "last_updated": "2026-05-16T16:45:39-04:00",
+        "latest_version": "1.26.1362003",
+        "latest_md5": "3ee3d09fc02c460d303d96076286481e",
+        "latest_sha256": "287d3f4e86b7a858bfd622eb2c1eca82c6b5480dced08b7bbebc01683bbbc4d9",
+        "latest_url": "zips/iptv-checker/iptv-checker-1.26.1362003.zip",
+        "latest_size": 360,
         "min_dispatcharr_version": "v0.20.0"
       },
       {
