@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-22T13:05:01Z",
+  "generated_at": "2026-05-22T17:21:54Z",
   "manifest": {
     "registry_url": "https://github.com/PiratesIRC/Plugins",
     "registry_name": "PiratesIRC/Plugins",
@@ -72,12 +72,12 @@
         "manifest_url": "zips/epg-janitor/manifest.json",
         "author": "PiratesIRC",
         "license": "MIT",
-        "last_updated": "2026-04-12T15:22:44-04:00",
-        "latest_version": "1.26.1021352",
-        "latest_md5": "41fd9302c0b485ad400ed7a99b514ea7",
-        "latest_sha256": "dd40a951e2688be35933e98423933eb09044c1892184ba74517f1ac0315a5f07",
-        "latest_url": "zips/epg-janitor/epg-janitor-1.26.1021352.zip",
-        "latest_size": 416,
+        "last_updated": "2026-05-22T10:19:01-04:00",
+        "latest_version": "1.26.1420824",
+        "latest_md5": "eab8f6ff7a962a3ecc86fc4d542f5a75",
+        "latest_sha256": "753a4b21439d251a078477d1a7d194a109dbea199637fa1513b7fa578f3bc2be",
+        "latest_url": "zips/epg-janitor/epg-janitor-1.26.1420824.zip",
+        "latest_size": 428,
         "min_dispatcharr_version": "v0.20.0"
       },
       {
@@ -116,11 +116,11 @@
         "manifest_url": "zips/iptv-checker/manifest.json",
         "author": "PiratesIRC",
         "license": "MIT",
-        "last_updated": "2026-05-16T16:45:39-04:00",
-        "latest_version": "1.26.1362003",
-        "latest_md5": "3ee3d09fc02c460d303d96076286481e",
-        "latest_sha256": "287d3f4e86b7a858bfd622eb2c1eca82c6b5480dced08b7bbebc01683bbbc4d9",
-        "latest_url": "zips/iptv-checker/iptv-checker-1.26.1362003.zip",
+        "last_updated": "2026-05-22T10:18:18-04:00",
+        "latest_version": "1.26.1421301",
+        "latest_md5": "fdd2aa87040098acc0566821cf1c0381",
+        "latest_sha256": "0f35351c42beab6c96fc7274f8edbcff49bbcff737871a7152601d21e45cf768",
+        "latest_url": "zips/iptv-checker/iptv-checker-1.26.1421301.zip",
         "latest_size": 360,
         "min_dispatcharr_version": "v0.20.0"
       },

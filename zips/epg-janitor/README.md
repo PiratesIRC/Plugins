@@ -2,7 +2,7 @@
 
 # EPG Janitor
 
-**Version:** `1.26.1021352` | **Author:** PiratesIRC | **Last Updated:** Apr 12 2026, 19:22 UTC
+**Version:** `1.26.1420824` | **Author:** PiratesIRC | **Last Updated:** May 22 2026, 14:19 UTC
 
 Scans for channels with EPG assignments but no program data. Auto-matches EPG to channels using intelligent fuzzy matching with aliases, removes EPG from hidden channels, and manages EPG assignments.
 
@@ -15,19 +15,20 @@ Scans for channels with EPG assignments but no program data. Auto-matches EPG to
 ### Latest Release
 
 - **Download:** [`epg-janitor-latest.zip`](https://github.com/PiratesIRC/Plugins/raw/releases/zips/epg-janitor/epg-janitor-latest.zip)
-- **Built:** Apr 18 2026, 16:28 UTC
-- **Source Commit:** [`2cf371a`](https://github.com/PiratesIRC/Plugins/commit/2cf371ad80c2219d832938067564d40b038ccd26)
+- **Built:** May 22 2026, 17:21 UTC
+- **Source Commit:** [`a5ccaa9`](https://github.com/PiratesIRC/Plugins/commit/a5ccaa94fb0ddb806eb2ef36abef0c8a665afb8d)
 
 **Checksums:**
 ```
-MD5:    41fd9302c0b485ad400ed7a99b514ea7
-SHA256: dd40a951e2688be35933e98423933eb09044c1892184ba74517f1ac0315a5f07
+MD5:    eab8f6ff7a962a3ecc86fc4d542f5a75
+SHA256: 753a4b21439d251a078477d1a7d194a109dbea199637fa1513b7fa578f3bc2be
 ```
 
 ### All Versions
 
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
+| `1.26.1420824` | [Download](https://github.com/PiratesIRC/Plugins/raw/releases/zips/epg-janitor/epg-janitor-1.26.1420824.zip) | May 22 2026, 17:21 UTC | [`a5ccaa9`](https://github.com/PiratesIRC/Plugins/commit/a5ccaa94fb0ddb806eb2ef36abef0c8a665afb8d) | eab8f6ff7a962a3ecc86fc4d542f5a75 | 753a4b21439d251a078477d1a7d194a109dbea199637fa1513b7fa578f3bc2be |
 | `1.26.1021352` | [Download](https://github.com/PiratesIRC/Plugins/raw/releases/zips/epg-janitor/epg-janitor-1.26.1021352.zip) | Apr 18 2026, 16:28 UTC | [`2cf371a`](https://github.com/PiratesIRC/Plugins/commit/2cf371ad80c2219d832938067564d40b038ccd26) | 41fd9302c0b485ad400ed7a99b514ea7 | dd40a951e2688be35933e98423933eb09044c1892184ba74517f1ac0315a5f07 |
 
 ---
@@ -55,6 +56,7 @@ Dispatcharr v0.20.0 or newer. Python 3.13+ (bundled). No external dependencies.
 
 - **Auto-Match EPG** — weighted structural scoring (callsign 50 / state 30 / city 20 / network 10) + Lineuparr-style 4-stage fuzzy pipeline (alias → exact → substring → token-sort), takes the higher score. Identical-name matches score 100.
 - **Scan & Heal** — find channels whose current EPG has no program data and walk ranked candidates for a working replacement (respects fallback source allowlist).
+- **EPG source selection & priority** — pick eligible sources by name or `*`/`?` wildcard (case-insensitive); only enabled sources are used, and score ties resolve by each source's Dispatcharr `priority` (higher wins).
 - **~200 built-in aliases** (FS1/FS2, CSPAN variants, rebrands like EPIX→MGM+, MSNBC→MS NOW, getTV→GREATTV, DIY→Magnolia, Hallmark Movies & Mysteries→Hallmark Mystery, Justice Network→True Crime Network). User-extendable via a JSON `custom_aliases` setting.
 - **Regional differentiation** (East/West/Pacific, Pacific ≡ West) — lineup channels with regional markers only match compatible EPG feeds, even when `ignore_regional_tags=true`.
 - **Per-category normalization toggles** — quality (`[HD]`, `[4K]`), regional (East/West/Pacific), geographic (`US:`, `[CA]`), misc (`(A)`, `(CX)`) stripped independently.
