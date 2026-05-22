@@ -2,7 +2,7 @@
 
 # YouTubearr
 
-**Version:** `1.18.0` | **Author:** jeff-gooch | **Last Updated:** May 16 2026, 17:32 UTC
+**Version:** `1.19.0` | **Author:** jeff-gooch | **Last Updated:** May 17 2026, 16:52 UTC
 
 Zero-dependency YouTube livestream plugin with automatic monitoring and configurable numbering
 
@@ -15,19 +15,20 @@ Zero-dependency YouTube livestream plugin with automatic monitoring and configur
 ### Latest Release
 
 - **Download:** [`youtubearr-latest.zip`](https://github.com/PiratesIRC/Plugins/raw/releases/zips/youtubearr/youtubearr-latest.zip)
-- **Built:** May 16 2026, 20:05 UTC
-- **Source Commit:** [`debb66d`](https://github.com/PiratesIRC/Plugins/commit/debb66d9d3205e01fd4b2d808931e5f5564793a5)
+- **Built:** May 22 2026, 13:05 UTC
+- **Source Commit:** [`d468305`](https://github.com/PiratesIRC/Plugins/commit/d4683054a70509329279d4ce5e20779591bd297a)
 
 **Checksums:**
 ```
-MD5:    4cc12ac91273d8c86f893f2c22a20fbf
-SHA256: dc6fa3cf3649539a8368bd214f1e6970b0e61634fd8d256b88f7ec945569cb1c
+MD5:    3c9d51b4ec6549306bba9840f3aa195c
+SHA256: 03793fc3f4ac3a862590a57d8b2bc7d19efec058bf9e6c46ae587930afb73353
 ```
 
 ### All Versions
 
 | Version | Download | Built | Commit | MD5 | SHA256 |
 |---------|----------|-------|--------|-----|--------|
+| `1.19.0` | [Download](https://github.com/PiratesIRC/Plugins/raw/releases/zips/youtubearr/youtubearr-1.19.0.zip) | May 22 2026, 13:05 UTC | [`d468305`](https://github.com/PiratesIRC/Plugins/commit/d4683054a70509329279d4ce5e20779591bd297a) | 3c9d51b4ec6549306bba9840f3aa195c | 03793fc3f4ac3a862590a57d8b2bc7d19efec058bf9e6c46ae587930afb73353 |
 | `1.18.0` | [Download](https://github.com/PiratesIRC/Plugins/raw/releases/zips/youtubearr/youtubearr-1.18.0.zip) | May 16 2026, 20:05 UTC | [`debb66d`](https://github.com/PiratesIRC/Plugins/commit/debb66d9d3205e01fd4b2d808931e5f5564793a5) | 4cc12ac91273d8c86f893f2c22a20fbf | dc6fa3cf3649539a8368bd214f1e6970b0e61634fd8d256b88f7ec945569cb1c |
 | `1.17.7` | [Download](https://github.com/PiratesIRC/Plugins/raw/releases/zips/youtubearr/youtubearr-1.17.7.zip) | May 09 2026, 15:21 UTC | [`de0e8ba`](https://github.com/PiratesIRC/Plugins/commit/de0e8ba2d627eb6227392a7dc590571ef869ca85) | 27d85c18c88a90ea39904a7b6d6d3f4b | b3dae17c30d069c0ca9c4943bc1b014abae7198d7906cb1f5dce66d0615038e6 |
 

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-16T20:05:37Z",
+  "generated_at": "2026-05-22T13:05:01Z",
   "manifest": {
     "slug": "youtubearr",
     "name": "YouTubearr",
@@ -9,21 +9,33 @@
     "repo_url": "https://github.com/jeff-gooch/youtubearr",
     "registry_url": "https://github.com/PiratesIRC/Plugins",
     "registry_name": "PiratesIRC/Plugins",
-    "last_updated": "2026-05-16T13:32:58-04:00",
+    "last_updated": "2026-05-17T12:52:26-04:00",
     "latest": {
-      "version": "1.18.0",
-      "commit_sha": "debb66d9d3205e01fd4b2d808931e5f5564793a5",
-      "commit_sha_short": "debb66d",
-      "build_timestamp": "2026-05-16T20:05:37Z",
-      "last_updated": "2026-05-16T13:32:58-04:00",
-      "checksum_md5": "4cc12ac91273d8c86f893f2c22a20fbf",
-      "checksum_sha256": "dc6fa3cf3649539a8368bd214f1e6970b0e61634fd8d256b88f7ec945569cb1c",
+      "version": "1.19.0",
+      "commit_sha": "d4683054a70509329279d4ce5e20779591bd297a",
+      "commit_sha_short": "d468305",
+      "build_timestamp": "2026-05-22T13:05:00Z",
+      "last_updated": "2026-05-17T12:52:26-04:00",
+      "checksum_md5": "3c9d51b4ec6549306bba9840f3aa195c",
+      "checksum_sha256": "03793fc3f4ac3a862590a57d8b2bc7d19efec058bf9e6c46ae587930afb73353",
       "min_dispatcharr_version": "v0.20.0",
       "latest_url": "zips/youtubearr/youtubearr-latest.zip",
-      "url": "zips/youtubearr/youtubearr-1.18.0.zip",
+      "url": "zips/youtubearr/youtubearr-1.19.0.zip",
       "size": 5001
     },
     "versions": [
+      {
+        "version": "1.19.0",
+        "commit_sha": "d4683054a70509329279d4ce5e20779591bd297a",
+        "commit_sha_short": "d468305",
+        "build_timestamp": "2026-05-22T13:05:00Z",
+        "last_updated": "2026-05-17T12:52:26-04:00",
+        "checksum_md5": "3c9d51b4ec6549306bba9840f3aa195c",
+        "checksum_sha256": "03793fc3f4ac3a862590a57d8b2bc7d19efec058bf9e6c46ae587930afb73353",
+        "min_dispatcharr_version": "v0.20.0",
+        "url": "zips/youtubearr/youtubearr-1.19.0.zip",
+        "size": 5001
+      },
       {
         "version": "1.18.0",
         "commit_sha": "debb66d9d3205e01fd4b2d808931e5f5564793a5",

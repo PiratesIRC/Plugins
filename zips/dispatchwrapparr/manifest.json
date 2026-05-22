@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-09T15:21:36Z",
+  "generated_at": "2026-05-22T13:05:01Z",
   "manifest": {
     "slug": "dispatchwrapparr",
     "name": "Dispatchwrapparr",
@@ -13,21 +13,33 @@
     "discord_thread": "https://discord.com/channels/1340492560220684331/1422776847703212132",
     "registry_url": "https://github.com/PiratesIRC/Plugins",
     "registry_name": "PiratesIRC/Plugins",
-    "last_updated": "2026-04-27T21:30:01-04:00",
+    "last_updated": "2026-05-21T23:46:14-05:00",
     "latest": {
-      "version": "1.6.2",
-      "commit_sha": "44fbc6b96eebd52ea29b27fc371af3c20f997702",
-      "commit_sha_short": "44fbc6b",
-      "build_timestamp": "2026-05-09T15:21:35Z",
-      "last_updated": "2026-04-27T21:30:01-04:00",
-      "checksum_md5": "49b9ac5caa08eec07d19e130cddff8bc",
-      "checksum_sha256": "ab33656c2c475db77af3d1eaf350d7334d4f4740af4cf4e7fc3b15e675fa8bbf",
-      "min_dispatcharr_version": "v0.21.0",
+      "version": "1.7.0",
+      "commit_sha": "ef5e336dad2396db99535c190be7e6c58d8cb2f9",
+      "commit_sha_short": "ef5e336",
+      "build_timestamp": "2026-05-22T13:05:00Z",
+      "last_updated": "2026-05-21T23:46:14-05:00",
+      "checksum_md5": "7a52baeb8985a09d9b370d70b609fcc1",
+      "checksum_sha256": "82d25541ab9753c93aefdd7c96cef719ba9049584fa704ebb0b7ee77f4f0b815",
+      "min_dispatcharr_version": "v0.25.0",
       "latest_url": "zips/dispatchwrapparr/dispatchwrapparr-latest.zip",
-      "url": "zips/dispatchwrapparr/dispatchwrapparr-1.6.2.zip",
-      "size": 42
+      "url": "zips/dispatchwrapparr/dispatchwrapparr-1.7.0.zip",
+      "size": 46
     },
     "versions": [
+      {
+        "version": "1.7.0",
+        "commit_sha": "ef5e336dad2396db99535c190be7e6c58d8cb2f9",
+        "commit_sha_short": "ef5e336",
+        "build_timestamp": "2026-05-22T13:05:00Z",
+        "last_updated": "2026-05-21T23:46:14-05:00",
+        "checksum_md5": "7a52baeb8985a09d9b370d70b609fcc1",
+        "checksum_sha256": "82d25541ab9753c93aefdd7c96cef719ba9049584fa704ebb0b7ee77f4f0b815",
+        "min_dispatcharr_version": "v0.25.0",
+        "url": "zips/dispatchwrapparr/dispatchwrapparr-1.7.0.zip",
+        "size": 46
+      },
       {
         "version": "1.6.2",
         "commit_sha": "44fbc6b96eebd52ea29b27fc371af3c20f997702",
