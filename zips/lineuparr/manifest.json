@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-22T13:05:01Z",
+  "generated_at": "2026-05-23T13:22:03Z",
   "manifest": {
     "slug": "lineuparr",
     "name": "Lineuparr",
@@ -9,21 +9,33 @@
     "repo_url": "https://github.com/PiratesIRC/Dispatcharr-Lineuparr-Plugin",
     "registry_url": "https://github.com/PiratesIRC/Plugins",
     "registry_name": "PiratesIRC/Plugins",
-    "last_updated": "2026-05-17T14:53:18-04:00",
+    "last_updated": "2026-05-22T13:24:23-04:00",
     "latest": {
-      "version": "1.26.1370103",
-      "commit_sha": "c0400efc30fbb59172ea0886e7fc5408effeb0f7",
-      "commit_sha_short": "c0400ef",
-      "build_timestamp": "2026-05-22T13:05:00Z",
-      "last_updated": "2026-05-17T14:53:18-04:00",
-      "checksum_md5": "1a47ae049aac441167d75a41a24c8a22",
-      "checksum_sha256": "ad7337057c6790570e067ea87f5e80e3b5960a26b2eb9c6b6aac6e6a87667a99",
+      "version": "1.26.1421711",
+      "commit_sha": "d2fefda83797e22d0cbac0a71aaf1d9dc6489386",
+      "commit_sha_short": "d2fefda",
+      "build_timestamp": "2026-05-23T13:22:03Z",
+      "last_updated": "2026-05-22T13:24:23-04:00",
+      "checksum_md5": "fbc8e7fd817a1a1965444d440890da18",
+      "checksum_sha256": "1a493fc4139d103edb3b5abdc4f6c7826113829e0824ccba5beadf26e39c2ad3",
       "min_dispatcharr_version": "v0.20.0",
       "latest_url": "zips/lineuparr/lineuparr-latest.zip",
-      "url": "zips/lineuparr/lineuparr-1.26.1370103.zip",
-      "size": 241
+      "url": "zips/lineuparr/lineuparr-1.26.1421711.zip",
+      "size": 268
     },
     "versions": [
+      {
+        "version": "1.26.1421711",
+        "commit_sha": "d2fefda83797e22d0cbac0a71aaf1d9dc6489386",
+        "commit_sha_short": "d2fefda",
+        "build_timestamp": "2026-05-23T13:22:03Z",
+        "last_updated": "2026-05-22T13:24:23-04:00",
+        "checksum_md5": "fbc8e7fd817a1a1965444d440890da18",
+        "checksum_sha256": "1a493fc4139d103edb3b5abdc4f6c7826113829e0824ccba5beadf26e39c2ad3",
+        "min_dispatcharr_version": "v0.20.0",
+        "url": "zips/lineuparr/lineuparr-1.26.1421711.zip",
+        "size": 268
+      },
       {
         "version": "1.26.1370103",
         "commit_sha": "c0400efc30fbb59172ea0886e7fc5408effeb0f7",
